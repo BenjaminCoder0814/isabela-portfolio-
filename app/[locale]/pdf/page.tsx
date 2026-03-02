@@ -2,12 +2,13 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 import { Suspense } from "react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { PortfolioPdf } from "@/pdf/PortfolioPdf";
 import PdfDownload from "@/pdf/PdfDownload";
 
-export default function PdfPage({ params }: { params: { locale: string } }) {
-  const t = useTranslations("pdfPage");
+export default async function PdfPage({ params }: { params: { locale: string } }) {
+  const t = await getTranslations({ locale: params.locale, namespace: "pdfPage" });
+
   return (
     <div className="section-shell section-spacing">
       <div className="glass-strong rounded-2xl p-8 md:p-10">

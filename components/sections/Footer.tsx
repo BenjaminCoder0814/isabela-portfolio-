@@ -1,7 +1,10 @@
+"use client";
+
 import { useTranslations } from "next-intl";
 
 export default function Footer({ locale }: { locale: string }) {
   const t = useTranslations("footer");
+
   return (
     <footer className="section-spacing light-section">
       <div className="section-shell flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-(--text)">

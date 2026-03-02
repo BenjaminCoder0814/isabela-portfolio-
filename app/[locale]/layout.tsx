@@ -1,3 +1,6 @@
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
@@ -12,10 +15,6 @@ export const metadata: Metadata = {
   title: "Isabela Machado | Portfolio",
 };
 
-export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
-}
-
 export default async function LocaleLayout({
   children,
   params,
@@ -25,7 +24,7 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params;
   if (!locales.includes(locale as Locale)) return notFound();
-  const messages = await getMessages();
+  const messages = await getMessages({ locale });
 
   return (
     <html lang={locale}>

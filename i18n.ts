@@ -1,13 +1,19 @@
 export const locales = ["pt", "en", "es"] as const;
 export const defaultLocale = "pt";
 export const localePrefix = "always";
-
 export type Locale = (typeof locales)[number];
 
-const i18nConfig = {
-	defaultLocale,
-	locales,
-	localePrefix,
-};
+export async function getRequestConfig({ locale }: { locale?: string } = {}) {
+	const resolved = locale && locales.includes(locale as Locale) ? (locale as Locale) : defaultLocale;
+	const messages = (await import(`./messages/${resolved}.json`)).default;
 
-export default i18nConfig;
+	return {
+		locales,
+		defaultLocale,
+		localePrefix,
+		locale: resolved,
+		messages,
+	};
+}
+
+export default getRequestConfig;
