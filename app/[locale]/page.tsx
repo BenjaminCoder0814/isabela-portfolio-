@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import CinematicIntro from "@/components/intro/CinematicIntro";
 import Hero from "@/components/hero/Hero";
 import About from "@/components/sections/About";
@@ -8,16 +10,17 @@ import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
 
 export default function Page({ params }: { params: { locale: string } }) {
+  const locale = params.locale as any;
   return (
     <main>
       <CinematicIntro />
-      <Hero locale={params.locale} />
+      <Hero locale={locale} />
       <About />
       <Highlights />
-      <Projects locale={params.locale} />
+      <Projects locale={locale} />
       <Skills />
       <Contact />
-      <Footer locale={params.locale} />
+      <Footer locale={locale} />
     </main>
   );
 }

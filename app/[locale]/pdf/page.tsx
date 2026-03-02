@@ -1,11 +1,10 @@
-import dynamic from "next/dynamic";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 import { Suspense } from "react";
 import { useTranslations } from "next-intl";
 import { PortfolioPdf } from "@/pdf/PortfolioPdf";
-
-const PDFDownload = dynamic(() => import("@/pdf/PdfDownload"), {
-  ssr: false,
-});
+import PdfDownload from "@/pdf/PdfDownload";
 
 export default function PdfPage({ params }: { params: { locale: string } }) {
   const t = useTranslations("pdfPage");
@@ -18,7 +17,7 @@ export default function PdfPage({ params }: { params: { locale: string } }) {
             <h1 className="text-3xl md:text-4xl font-semibold">{t("title")}</h1>
             <p className="text-lg text-muted max-w-2xl">{t("description")}</p>
           </div>
-          <PDFDownload locale={params.locale} label={t("download")} />
+          <PdfDownload locale={params.locale} label={t("download")} />
         </div>
         <div className="mt-8 rounded-xl overflow-hidden border border-white/10 bg-black/40">
           <Suspense fallback={<div className="p-10 text-center">Loading...</div>}>

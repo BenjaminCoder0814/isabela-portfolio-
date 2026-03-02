@@ -3,3 +3,11 @@ export const defaultLocale = "pt";
 export const localePrefix = "always";
 
 export type Locale = (typeof locales)[number];
+
+const i18nConfig = {
+	defaultLocale,
+	locales,
+	localePrefix,
+};
+
+export default i18nConfig;

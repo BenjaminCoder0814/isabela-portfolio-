@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { NextIntlClientProvider, useMessages } from "next-intl";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { locales, type Locale } from "../../i18n";
 import "../../styles/globals.css";
@@ -15,23 +16,24 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export default function LocaleLayout({
+export default async function LocaleLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: { locale: Locale };
+  params: Promise<{ locale: string }>;
 }) {
-  const messages = useMessages();
-  if (!locales.includes(params.locale)) return notFound();
+  const { locale } = await params;
+  if (!locales.includes(locale as Locale)) return notFound();
+  const messages = await getMessages();
 
   return (
-    <html lang={params.locale}>
+    <html lang={locale}>
       <body>
-        <NextIntlClientProvider locale={params.locale} messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           <StudioBackground />
           <BroadcastHUD />
-          <Navbar locale={params.locale} />
+          <Navbar locale={locale as Locale} />
           {children}
         </NextIntlClientProvider>
       </body>

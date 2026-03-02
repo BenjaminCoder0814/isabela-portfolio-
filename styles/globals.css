@@ -45,7 +45,7 @@ body {
   background-color: var(--bg-dark);
   color: var(--text-invert);
   min-height: 100vh;
-  font-family: var(--font-sans), "Inter", system-ui, -apple-system, sans-serif;
+  font-family: "Inter", "Space Grotesk", "Helvetica Neue", Arial, system-ui, -apple-system, sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }

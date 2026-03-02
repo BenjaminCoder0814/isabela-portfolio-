@@ -1,18 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
 import "../styles/globals.css";
-
-const inter = Inter({
-  variable: "--font-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const grotesk = Space_Grotesk({
-  variable: "--font-display",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Isabela Machado | Portfolio",
@@ -40,7 +27,7 @@ export default function RootLayout({
       className="bg-(--bg-dark) text-(--text-invert)"
       suppressHydrationWarning
     >
-      <body className={`${inter.variable} ${grotesk.variable} min-h-screen antialiased`}>
+      <body className="min-h-screen antialiased">
         {children}
       </body>
     </html>
