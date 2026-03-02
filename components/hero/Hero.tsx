@@ -7,6 +7,7 @@ import dynamic from "next/dynamic";
 import LowerThird from "@/components/LowerThird";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
+import Image from "next/image";
 
 const CameraScene = dynamic(() => import("./CameraScene"), {
   ssr: false,
@@ -91,7 +92,7 @@ export default function Hero() {
         className="absolute inset-0 z-[1] pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 80% 70% at 28% 50%, rgba(247,247,251,0) 0%, rgba(247,247,251,0.88) 55%, rgba(247,247,251,1) 100%)",
+            "radial-gradient(ellipse 85% 70% at 32% 50%, rgba(21,25,40,0.05) 0%, rgba(11,13,18,0.78) 60%, rgba(11,13,18,0.95) 100%)",
         }}
       />
 
@@ -198,16 +199,16 @@ export default function Hero() {
           />
 
           {/* Glass frame */}
-          <div className="relative glass rounded-2xl p-[10px] shadow-2xl border border-white/40">
+          <div className="relative glass rounded-2xl p-[10px] shadow-2xl border border-white/12">
             {/* Photo area */}
             <div className="relative w-[270px] sm:w-[310px] h-[360px] sm:h-[400px] rounded-xl overflow-hidden bg-[var(--bg-2)]">
-              {/* Gradient placeholder — replace with <Image> when photo is ready */}
-              <div
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(155deg,#dde8ff 0%,#f5d6ee 45%,#d6f5e6 100%)",
-                }}
+              {/* Photo */}
+              <Image
+                src="/images/isabela.jpg"
+                alt="Isabela Machado"
+                fill
+                priority
+                className="object-cover"
               />
 
               {/* Scanlines on photo */}

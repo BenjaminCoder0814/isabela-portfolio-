@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import dynamic from "next/dynamic";
-import IntroBoot from "./IntroBoot";
+import CinematicIntro from "./CinematicIntro";
 import BroadcastHUD from "./BroadcastHUD";
 
 const CanvasParticles = dynamic(() => import("./CanvasParticles"), {
@@ -26,10 +26,8 @@ export default function BroadcastLayout({ locale, children }: BroadcastLayoutPro
       {/* Fixed broadcast HUD overlay */}
       <BroadcastHUD />
 
-      {/* Boot preloader — shown once per page load */}
-      {!introDone && (
-        <IntroBoot locale={locale} onDone={() => setIntroDone(true)} />
-      )}
+      {/* Cinematic intro — Luz • Câmera • Ação */}
+      {!introDone && <CinematicIntro />}
 
       {/* Main content */}
       {children}
