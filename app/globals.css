@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #faf9f7;
-  --bg-2: #f0eee9;
-  --text: #1a1a1a;
-  --muted: #6b6b6b;
-  --accent1: #0057ff;
-  --accent2: #e0007a;
-  --accent3: #00e87a;
+  --bg: #F7F7FB;
+  --bg-2: #EEECF3;
+  --text: #0B0D12;
+  --muted: #5A5D6B;
+  --accent1: #2D6BFF;
+  --accent2: #FF2D92;
+  --accent3: #2CFF9A;
   --glass: rgba(255, 255, 255, 0.55);
   --glass-border: rgba(255, 255, 255, 0.3);
 }
@@ -40,6 +40,20 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+}
+
+/* Broadcast scanlines */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent 0px 3px,
+    rgba(0, 0, 0, 0.025) 3px 4px
+  );
 }
 
 /* Film grain overlay */

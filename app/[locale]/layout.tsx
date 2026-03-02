@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Inter } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import BroadcastLayout from "@/components/BroadcastLayout";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -30,9 +31,11 @@ export default async function LocaleLayout({
     <html lang={locale} className={inter.variable}>
       <body className="font-sans bg-[var(--bg)] text-[var(--text)] antialiased">
         <NextIntlClientProvider messages={messages}>
-          <Header />
-          <main>{children}</main>
-          <Footer />
+          <BroadcastLayout locale={locale}>
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </BroadcastLayout>
         </NextIntlClientProvider>
       </body>
     </html>

@@ -21,7 +21,7 @@ export default function Highlights() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <SectionWrapper id="highlights">
+    <SectionWrapper id="highlights" dark>
       <div ref={ref} className="flex flex-col gap-12">
         {/* Header */}
         <div className="flex flex-col gap-3">

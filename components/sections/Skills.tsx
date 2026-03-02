@@ -15,7 +15,7 @@ export default function Skills() {
   const chipBase = "px-3 py-1.5 rounded text-xs font-mono font-semibold tracking-wide border transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md cursor-default";
 
   return (
-    <SectionWrapper id="skills">
+    <SectionWrapper id="skills" dark>
       <div ref={ref} className="flex flex-col gap-12">
         {/* Header */}
         <div className="flex flex-col gap-3">
