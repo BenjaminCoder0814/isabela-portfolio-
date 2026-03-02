@@ -1,0 +1,91 @@
+{
+  "nav": {
+    "about": "Sobre mí",
+    "highlights": "Destacados",
+    "projects": "Proyectos",
+    "skills": "Skills",
+    "contact": "Contacto",
+    "pdf": "Descargar PDF"
+  },
+  "intro": { "light": "LUZ.", "camera": "CÁMARA.", "action": "ACCIÓN." },
+  "hero": {
+    "tag": "RADIO Y TV • CONTENIDO • PRESENTACIÓN • EDICIÓN",
+    "headline": "Isabela Machado",
+    "value": "Narrativas con estética de estudio e impacto en pantalla.",
+    "ctaPdf": "Descargar PDF",
+    "ctaContact": "Contacto",
+    "rotate": ["Presentación", "Guion", "Edición", "Grabación", "Producción"],
+    "lowerThirdTop": "Isabela Machado",
+    "lowerThirdBottom": "Radio y TV • 1º semestre"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "subtitle": "Ficha rápida",
+    "body": "Estudiante de Radio y TV (1º semestre) con mirada de estudio: luz, encuadre y ritmo guiados por el guion. Busco proyectos que combinen cámara, conducción y edición ágil para pantallas digitales.",
+    "cards": [
+      { "title": "Radio y TV — 1º semestre", "description": "Base técnica en estudio, corte y operación." },
+      { "title": "Idiomas — PT/EN/ES", "description": "Entrega bilingüe en cámara y guion." },
+      { "title": "Foco — Audiovisual", "description": "Look broadcast con narrativa clara." },
+      { "title": "Disponible para proyectos", "description": "Cortos, branded content y social video." }
+    ]
+  },
+  "highlights": {
+    "title": "Destacados",
+    "subtitle": "Lo que aporto en set y post",
+    "items": [
+      { "title": "Presentación", "description": "Cámara segura, dicción limpia y ritmo televisivo." },
+      { "title": "Guion", "description": "Ideas concisas, ganchos claros y timing marcado." },
+      { "title": "Edición", "description": "Cortes precisos, sonido sutil y gráficos ligeros." },
+      { "title": "Grabación", "description": "Luz segura, encuadre editorial y audio cuidado." },
+      { "title": "Social Video", "description": "Vertical, ganchos rápidos y finalización ligera." },
+      { "title": "Producción", "description": "Planeación, logística de estudio y control de rundown." }
+    ]
+  },
+  "projects": {
+    "title": "Proyectos",
+    "subtitle": "Selección editorial",
+    "view": "Ver"
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "Herramientas en mi flujo",
+    "chips": [
+      "Presentación on-air",
+      "Guion y escaleta",
+      "Edición y motion leve",
+      "Grabación básica",
+      "Planificación de historias",
+      "Entrevistas"
+    ],
+    "tools": ["Premiere Pro", "DaVinci Resolve", "Audition", "After Effects", "Figma", "Notion", "Google Workspace", "OBS Studio"]
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "Control Room",
+    "description": "Conectemos cámaras, guiones y agenda. Elige un canal o envía un mensaje rápido.",
+    "buttons": {
+      "whatsapp": "WhatsApp",
+      "email": "Email",
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn"
+    },
+    "form": {
+      "name": "Nombre",
+      "email": "Email",
+      "message": "Mensaje",
+      "submit": "Enviar"
+    },
+    "availability": "Disponible para proyectos, freelas y colaboraciones académicas.",
+    "qr": "Escanea el QR"
+  },
+  "pdfPage": {
+    "title": "PDF",
+    "description": "Descarga la versión PDF por idioma.",
+    "download": "Descargar PDF",
+    "preview": "Vista previa"
+  },
+  "footer": {
+    "rights": "© 2026 Isabela Machado. Estética broadcast.",
+    "pdf": "PDF"
+  }
+}

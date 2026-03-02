@@ -1,0 +1,31 @@
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
+import { useTranslations } from "next-intl";
+import { PortfolioPdf } from "@/pdf/PortfolioPdf";
+
+const PDFDownload = dynamic(() => import("@/pdf/PdfDownload"), {
+  ssr: false,
+});
+
+export default function PdfPage({ params }: { params: { locale: string } }) {
+  const t = useTranslations("pdfPage");
+  return (
+    <div className="section-shell section-spacing">
+      <div className="glass-strong rounded-2xl p-8 md:p-10">
+        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div>
+            <p className="stroke-heading">PDF</p>
+            <h1 className="text-3xl md:text-4xl font-semibold">{t("title")}</h1>
+            <p className="text-lg text-muted max-w-2xl">{t("description")}</p>
+          </div>
+          <PDFDownload locale={params.locale} label={t("download")} />
+        </div>
+        <div className="mt-8 rounded-xl overflow-hidden border border-white/10 bg-black/40">
+          <Suspense fallback={<div className="p-10 text-center">Loading...</div>}>
+            <PortfolioPdf locale={params.locale} preview />
+          </Suspense>
+        </div>
+      </div>
+    </div>
+  );
+}

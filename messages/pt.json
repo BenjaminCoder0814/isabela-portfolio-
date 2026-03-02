@@ -1,0 +1,91 @@
+{
+  "nav": {
+    "about": "Sobre",
+    "highlights": "Destaques",
+    "projects": "Projetos",
+    "skills": "Skills",
+    "contact": "Contato",
+    "pdf": "Baixar PDF"
+  },
+  "intro": { "light": "LUZ.", "camera": "CÂMERA.", "action": "AÇÃO." },
+  "hero": {
+    "tag": "RÁDIO & TV • CONTEÚDO • APRESENTAÇÃO • EDIÇÃO",
+    "headline": "Isabela Machado",
+    "value": "Narrativas com estética de estúdio e impacto de tela.",
+    "ctaPdf": "Baixar PDF",
+    "ctaContact": "Entrar em contato",
+    "rotate": ["Apresentação", "Roteiro", "Edição", "Captação", "Produção"],
+    "lowerThirdTop": "Isabela Machado",
+    "lowerThirdBottom": "Rádio & TV • 1º semestre"
+  },
+  "about": {
+    "title": "Sobre",
+    "subtitle": "Press kit rápido",
+    "body": "Estudante de Rádio & TV (1º semestre) com olhar de estúdio: luz, enquadramento e ritmo guiados pelo roteiro. Busco projetos que combinem condução de câmera, apresentação e edição enxuta para telas digitais.",
+    "cards": [
+      { "title": "Rádio & TV — 1º semestre", "description": "Base técnica em estúdio, corte e operação." },
+      { "title": "Idiomas — PT/EN/ES", "description": "Entrega bilíngue em câmera e roteiro." },
+      { "title": "Foco — Audiovisual", "description": "Broadcast visual com narrativa clara." },
+      { "title": "Disponível para projetos", "description": "Curta, branded content e social video." }
+    ]
+  },
+  "highlights": {
+    "title": "Destaques",
+    "subtitle": "O que eu faço no set e na ilha",
+    "items": [
+      { "title": "Apresentação", "description": "Entrega de câmera confiante, dicção limpa e ritmo televisivo." },
+      { "title": "Roteiro", "description": "Pautas objetivas, ganchos claros e tempo bem marcado." },
+      { "title": "Edição", "description": "Corte preciso, sound design sutil e gráficos leves." },
+      { "title": "Captação", "description": "Luz segura, enquadramento editorial e cuidado com áudio." },
+      { "title": "Social Video", "description": "Vertical, ganchos rápidos e finalização enxuta." },
+      { "title": "Produção", "description": "Planejamento, logística de estúdio e controle de pauta." }
+    ]
+  },
+  "projects": {
+    "title": "Projetos",
+    "subtitle": "Seleção com estética editorial",
+    "view": "Ver"
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "Ferramentas que uso no fluxo",
+    "chips": [
+      "Apresentação on-air",
+      "Roteiro e escaleta",
+      "Edição e motion leve",
+      "Captação básica",
+      "Planejamento de pauta",
+      "Entrevistas"
+    ],
+    "tools": ["Premiere Pro", "DaVinci Resolve", "Audition", "After Effects", "Figma", "Notion", "Google Workspace", "OBS Studio"]
+  },
+  "contact": {
+    "title": "Contato",
+    "subtitle": "Control Room",
+    "description": "Vamos ligar câmeras, roteiros e agenda. Escolha o canal ou envie uma mensagem rápida.",
+    "buttons": {
+      "whatsapp": "WhatsApp",
+      "email": "Email",
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn"
+    },
+    "form": {
+      "name": "Nome",
+      "email": "Email",
+      "message": "Mensagem",
+      "submit": "Enviar"
+    },
+    "availability": "Disponível para projetos, freelas e collabs acadêmicas.",
+    "qr": "Escaneie o QR"
+  },
+  "pdfPage": {
+    "title": "PDF",
+    "description": "Baixe a versão em PDF por idioma.",
+    "download": "Baixar PDF",
+    "preview": "Pré-visualização"
+  },
+  "footer": {
+    "rights": "© 2026 Isabela Machado. Estética Broadcast.",
+    "pdf": "PDF"
+  }
+}

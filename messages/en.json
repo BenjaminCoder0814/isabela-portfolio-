@@ -1,0 +1,91 @@
+{
+  "nav": {
+    "about": "About",
+    "highlights": "Highlights",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact",
+    "pdf": "Download PDF"
+  },
+  "intro": { "light": "LIGHT.", "camera": "CAMERA.", "action": "ACTION." },
+  "hero": {
+    "tag": "BROADCAST • CONTENT • HOSTING • EDITING",
+    "headline": "Isabela Machado",
+    "value": "Studio-grade storytelling with on-screen impact.",
+    "ctaPdf": "Download PDF",
+    "ctaContact": "Get in touch",
+    "rotate": ["Hosting", "Script", "Editing", "Shooting", "Production"],
+    "lowerThirdTop": "Isabela Machado",
+    "lowerThirdBottom": "Radio & TV • 1st semester"
+  },
+  "about": {
+    "title": "About",
+    "subtitle": "Press kit snapshot",
+    "body": "Radio & TV student (1st semester) with a studio mindset: light, framing and pacing led by the script. I look for projects that mix camera work, hosting and lean editing for digital screens.",
+    "cards": [
+      { "title": "Radio & TV — 1st semester", "description": "Technical base in studio, cutting and operation." },
+      { "title": "Languages — PT/EN/ES", "description": "Bilingual delivery on-camera and in scripts." },
+      { "title": "Focus — Audiovisual", "description": "Broadcast look with clear narrative." },
+      { "title": "Open for projects", "description": "Shorts, branded content and social video." }
+    ]
+  },
+  "highlights": {
+    "title": "Highlights",
+    "subtitle": "What I deliver on set and in post",
+    "items": [
+      { "title": "Hosting", "description": "Confident camera presence, clean diction and TV pacing." },
+      { "title": "Script", "description": "Concise beats, clear hooks and timed delivery." },
+      { "title": "Editing", "description": "Precise cuts, subtle sound design and light graphics." },
+      { "title": "Shooting", "description": "Safe lighting, editorial framing and careful audio." },
+      { "title": "Social Video", "description": "Vertical focus, fast hooks and lean finishing." },
+      { "title": "Production", "description": "Planning, studio logistics and rundown control." }
+    ]
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "An editorial selection",
+    "view": "View"
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "Tools in my daily flow",
+    "chips": [
+      "On-air hosting",
+      "Scripting & rundown",
+      "Editing & light motion",
+      "Basic shooting",
+      "Story planning",
+      "Interviewing"
+    ],
+    "tools": ["Premiere Pro", "DaVinci Resolve", "Audition", "After Effects", "Figma", "Notion", "Google Workspace", "OBS Studio"]
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Control Room",
+    "description": "Let’s sync cameras, scripts and schedule. Pick a channel or send a quick note.",
+    "buttons": {
+      "whatsapp": "WhatsApp",
+      "email": "Email",
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn"
+    },
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send"
+    },
+    "availability": "Available for projects, freelance and academic collabs.",
+    "qr": "Scan the QR"
+  },
+  "pdfPage": {
+    "title": "PDF",
+    "description": "Download the PDF version per language.",
+    "download": "Download PDF",
+    "preview": "Preview"
+  },
+  "footer": {
+    "rights": "© 2026 Isabela Machado. Broadcast aesthetic.",
+    "pdf": "PDF"
+  }
+}
