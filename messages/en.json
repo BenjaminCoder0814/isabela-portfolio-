@@ -1,0 +1,125 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact",
+    "pdf": "Download PDF"
+  },
+  "hero": {
+    "eyebrow": "Broadcast · Content · Hosting · Editing",
+    "headline": "Studio-grade storytelling with on-screen impact.",
+    "sub": "From script to on-air: production, presence, and pacing — with creative + technical vision.",
+    "cta1": "Download PDF",
+    "cta2": "Get in touch",
+    "onAir": "ON AIR",
+    "cycling": ["Host", "Creator", "Editor", "Scriptwriter", "Communicator"]
+  },
+  "about": {
+    "label": "About",
+    "title": "Who I am",
+    "body": "I'm Isabela Machado, a Radio & TV student (1st semester), focused on content creation, communication, and audiovisual production. I love turning ideas into short, beautiful, and clear narratives — ready for audiences and brands. My vision blends studio technique with the aesthetic sensibility of someone who understands stories, reels, and the big screen."
+  },
+  "highlights": {
+    "label": "Highlights",
+    "title": "What I do",
+    "items": [
+      { "title": "Hosting", "desc": "Camera, live, interviews" },
+      { "title": "Scriptwriting", "desc": "Narrative, brief, copy" },
+      { "title": "Editing", "desc": "Premiere, DaVinci, CapCut" },
+      { "title": "Capturing", "desc": "Camera, lighting, direct sound" },
+      { "title": "Social Video", "desc": "Reels, stories, shorts" },
+      { "title": "Production", "desc": "Pre to post, start to finish" }
+    ]
+  },
+  "projects": {
+    "label": "Projects",
+    "title": "Selected work",
+    "filters": {
+      "all": "All",
+      "Hosting": "Hosting",
+      "Editing": "Editing",
+      "Script": "Script",
+      "Social": "Social",
+      "Production": "Production"
+    },
+    "role": "Role",
+    "year": "Year",
+    "watch": "Watch",
+    "view": "View project"
+  },
+  "skills": {
+    "label": "Skills & Tools",
+    "title": "Competencies",
+    "hard": [
+      "Hosting & Voice-over",
+      "Scriptwriting & Brief",
+      "Video Editing",
+      "Capturing & Photography",
+      "Content Direction",
+      "Social Media Video"
+    ],
+    "tools": [
+      "Premiere Pro",
+      "DaVinci Resolve",
+      "After Effects",
+      "CapCut",
+      "Photoshop",
+      "Canva",
+      "OBS Studio",
+      "Lightroom"
+    ]
+  },
+  "education": {
+    "label": "Education",
+    "title": "Education",
+    "degree": "Radio and Television",
+    "semester": "1st Semester",
+    "institution": "University — In progress",
+    "extras": "Extra courses & Certifications",
+    "languages": {
+      "title": "Languages",
+      "items": ["Native Portuguese", "Intermediate English", "Basic Spanish"]
+    }
+  },
+  "value": {
+    "label": "Value Proposition",
+    "title": "What I deliver for your company",
+    "sub": "From briefing to delivery: visual content with narrative, rhythm, and results.",
+    "items": [
+      { "title": "Video Campaigns", "desc": "Concept, script, capture, and editing for brands" },
+      { "title": "Short Videos & Reels", "desc": "Fast, beautiful, and magnetic content" },
+      { "title": "Behind the Scenes", "desc": "Humanizes the brand with storytelling" },
+      { "title": "Institutional Video", "desc": "Presentations that convince and enchant" },
+      { "title": "Event Coverage", "desc": "Camera, interviews, and fast delivery" },
+      { "title": "Social Media Video", "desc": "Planning, production, and consistency" }
+    ]
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Let's create something remarkable?",
+    "sub": "Open to freelance, internships, and creative projects.",
+    "whatsapp": "WhatsApp",
+    "email": "Email",
+    "instagram": "Instagram",
+    "linkedin": "LinkedIn",
+    "location": "São Paulo, SP — Brazil",
+    "form": {
+      "name": "Your name",
+      "email": "Your email",
+      "message": "Your message",
+      "send": "Send message"
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "made": "Made with focus and rhythm"
+  },
+  "pdf": {
+    "title": "Resume & Portfolio",
+    "preview": "Preview",
+    "download": "Download PDF",
+    "select": "Select language"
+  }
+}

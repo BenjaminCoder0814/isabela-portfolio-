@@ -1,0 +1,125 @@
+{
+  "nav": {
+    "home": "Início",
+    "about": "Sobre",
+    "projects": "Projetos",
+    "skills": "Skills",
+    "contact": "Contato",
+    "pdf": "Baixar PDF"
+  },
+  "hero": {
+    "eyebrow": "Rádio & TV · Conteúdo · Apresentação · Edição",
+    "headline": "Conteúdo com estética de estúdio e impacto de tela.",
+    "sub": "Do roteiro ao on air: produção, presença e ritmo — com visão criativa e técnica.",
+    "cta1": "Baixar PDF",
+    "cta2": "Entrar em contato",
+    "onAir": "ON AIR",
+    "cycling": ["Apresentadora", "Criadora", "Editora", "Roteirista", "Comunicadora"]
+  },
+  "about": {
+    "label": "Sobre",
+    "title": "Quem sou",
+    "body": "Sou Isabela Machado, estudante de Rádio e TV (1º semestre), com atuação em criação de conteúdo, comunicação e audiovisual. Gosto de transformar ideias em narrativas curtas, bonitas e claras — prontas para público e marca. Minha visão une técnica de estúdio com sensibilidade estética de quem entende stories, reels e tela grande."
+  },
+  "highlights": {
+    "label": "Destaques",
+    "title": "O que eu faço",
+    "items": [
+      { "title": "Apresentação", "desc": "Câmera, ao vivo, entrevistas" },
+      { "title": "Roteiro", "desc": "Narrativa, pauta, texto" },
+      { "title": "Edição", "desc": "Premiere, DaVinci, CapCut" },
+      { "title": "Captação", "desc": "Câmera, luz, som direto" },
+      { "title": "Social Video", "desc": "Reels, stories, shorts" },
+      { "title": "Produção", "desc": "Pré ao pós, do início ao fim" }
+    ]
+  },
+  "projects": {
+    "label": "Projetos",
+    "title": "Trabalhos selecionados",
+    "filters": {
+      "all": "Todos",
+      "Hosting": "Apresentação",
+      "Editing": "Edição",
+      "Script": "Roteiro",
+      "Social": "Social",
+      "Production": "Produção"
+    },
+    "role": "Função",
+    "year": "Ano",
+    "watch": "Assistir",
+    "view": "Ver projeto"
+  },
+  "skills": {
+    "label": "Skills & Tools",
+    "title": "Competências",
+    "hard": [
+      "Apresentação & Locução",
+      "Roteiro & Pauta",
+      "Edição de Vídeo",
+      "Captação & Fotografia",
+      "Direção de Conteúdo",
+      "Social Media Video"
+    ],
+    "tools": [
+      "Premiere Pro",
+      "DaVinci Resolve",
+      "After Effects",
+      "CapCut",
+      "Photoshop",
+      "Canva",
+      "OBS Studio",
+      "Lightroom"
+    ]
+  },
+  "education": {
+    "label": "Formação",
+    "title": "Educação",
+    "degree": "Rádio e Televisão",
+    "semester": "1º Semestre",
+    "institution": "Universidade — Em andamento",
+    "extras": "Cursos extras & Certificações",
+    "languages": {
+      "title": "Idiomas",
+      "items": ["Português Nativo", "Inglês Intermediário", "Espanhol Básico"]
+    }
+  },
+  "value": {
+    "label": "Proposta de Valor",
+    "title": "O que entrego para a sua empresa",
+    "sub": "Do briefing à entrega: conteúdo visual com narrativa, ritmo e resultado.",
+    "items": [
+      { "title": "Campanhas em Vídeo", "desc": "Conceito, roteiro, captação e edição para marcas" },
+      { "title": "Vídeos Curtos & Reels", "desc": "Conteúdo rápido, bonito e magnético" },
+      { "title": "Bastidores & Making Of", "desc": "Humaniza a marca com storytelling" },
+      { "title": "Vídeo Institucional", "desc": "Apresentações que convencem e encantam" },
+      { "title": "Cobertura de Eventos", "desc": "Câmera, entrevistas e entrega rápida" },
+      { "title": "Social Media Video", "desc": "Planejamento, produção e consistência" }
+    ]
+  },
+  "contact": {
+    "label": "Contato",
+    "title": "Vamos criar algo marcante?",
+    "sub": "Aberta a freelas, estágios e projetos criativos.",
+    "whatsapp": "WhatsApp",
+    "email": "E-mail",
+    "instagram": "Instagram",
+    "linkedin": "LinkedIn",
+    "location": "São Paulo, SP — Brasil",
+    "form": {
+      "name": "Seu nome",
+      "email": "Seu e-mail",
+      "message": "Sua mensagem",
+      "send": "Enviar mensagem"
+    }
+  },
+  "footer": {
+    "rights": "Todos os direitos reservados",
+    "made": "Feito com foco e ritmo"
+  },
+  "pdf": {
+    "title": "Currículo & Portfólio",
+    "preview": "Pré-visualização",
+    "download": "Baixar PDF",
+    "select": "Selecionar idioma"
+  }
+}
