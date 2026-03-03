@@ -1,5 +1,3 @@
-"use client";
-
 export const dynamic = "force-dynamic";
 
 import CinematicIntro from "@/components/intro/CinematicIntro";
@@ -14,8 +12,9 @@ import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
 import { Locale } from "@/i18n";
 
-export default function Page({ params }: { params: { locale: string } }) {
-  const locale = params.locale as Locale;
+export default async function Page({ params }: { params: Promise<{ locale: Locale }> }) {
+  const { locale } = await params;
+
   return (
     <main>
       <CinematicIntro />
