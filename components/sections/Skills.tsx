@@ -8,7 +8,7 @@ export default function Skills() {
   const t = useTranslations("skills");
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-10%" });
-  const chips = useMemo(() => t.raw("chips") as string[], [t]);
+  const categories = useMemo(() => t.raw("categories") as { title: string; items: string[] }[], [t]);
   const tools = useMemo(() => t.raw("tools") as string[], [t]);
 
   return (
@@ -35,17 +35,25 @@ export default function Skills() {
             </motion.h2>
           </div>
         </div>
-        <div className="flex flex-wrap gap-3">
-          {chips.map((chip, idx) => (
-            <motion.span
-              key={chip}
+        <div className="grid gap-6 md:grid-cols-3">
+          {categories.map((cat, idx) => (
+            <motion.div
+              key={cat.title}
               initial={{ y: 20, opacity: 0 }}
               animate={inView ? { y: 0, opacity: 1 } : {}}
-              transition={{ delay: 0.05 * idx, duration: 0.5, ease: "easeOut" }}
-              className="rounded-full border border-black/10 bg-white px-4 py-2 text-sm font-semibold text-(--text) shadow-sm"
+              transition={{ delay: 0.06 * idx, duration: 0.5, ease: "easeOut" }}
+              className="relative overflow-hidden rounded-2xl border border-black/8 bg-white p-6 shadow-[0_18px_50px_rgba(0,0,0,0.08)]"
             >
-              {chip}
-            </motion.span>
+              <div className="absolute inset-0 bg-linear-to-br from-(--magenta)/0 via-(--blue)/0 to-(--blue)/8" aria-hidden />
+              <div className="relative text-sm uppercase tracking-[0.18em] text-(--muted-dark)">{cat.title}</div>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {cat.items.map((item) => (
+                  <span key={item} className="rounded-full border border-black/10 bg-white px-3 py-1 text-sm font-semibold text-(--text)">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
           ))}
         </div>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-3">

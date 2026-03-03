@@ -13,7 +13,7 @@
   "hero": {
     "tag": "Broadcast • Studio • On-air • Post",
     "headline": "Isabela Machado",
-    "value": "Studio aesthetic for set, doc and social: pacing, diction and clean finishing.",
+    "value": "Lighting, framing and pacing driven by script. On-camera presence with studio polish.",
     "ctaPdf": "Download PDF",
     "ctaContact": "Get in touch",
     "rotate": ["Hosting", "Script", "Editing", "Shooting", "Production"],
@@ -21,30 +21,33 @@
     "lowerThirdBottom": "Radio & TV • 1st semester"
   },
   "about": {
-    "title": "Personal studio",
+    "title": "About / Press Kit",
     "subtitle": "Control room snapshot",
-    "body": "Radio & TV student (1st semester) who hosts, shoots and finishes with broadcast pacing. I bring a studio look to short docs, magazine formats and vertical pieces with clean graphics.",
+    "body": "I’m Isabela Machado — Radio & TV student (1st semester) with a studio eye. Lighting, framing and pacing led by the script. On-camera presence, editorial narrative and editing that works on digital screens and broadcast.",
     "metrics": [
       { "label": "Hours on set and in edit", "value": "120h" },
       { "label": "On-air languages", "value": "PT • EN • ES" }
     ],
     "cards": [
       { "title": "Radio & TV — 1st semester", "description": "Technical base in studio, cutting and operation." },
-      { "title": "Languages — PT/EN/ES", "description": "Bilingual delivery on-camera and in scripts." },
-      { "title": "Focus — Audiovisual", "description": "Broadcast look with clear narrative." },
-      { "title": "Open for projects", "description": "Shorts, branded content and social video." }
+      { "title": "Languages — PT/EN/ES", "description": "Trilingual delivery on-camera and scripting." },
+      { "title": "Focus — Audiovisual", "description": "Broadcast storytelling with light gfx." },
+      { "title": "Open for projects", "description": "Short doc, magazine, vertical and branded." }
     ]
   },
   "highlights": {
     "title": "Highlights",
     "subtitle": "What I deliver live and in post",
-    "items": [
-      { "title": "Hosting", "description": "Confident camera presence, clean diction and TV pacing." },
-      { "title": "Script", "description": "Concise beats, clear hooks and timed delivery." },
-      { "title": "Editing", "description": "Precise cuts, subtle sound design and light graphics." },
-      { "title": "Shooting", "description": "Safe lighting, editorial framing and careful audio." },
-      { "title": "Social Video", "description": "Vertical focus, fast hooks and lean finishing." },
-      { "title": "Production", "description": "Planning, studio logistics and rundown control." }
+    "tabs": { "set": "On set", "edit": "In post" },
+    "setItems": [
+      { "title": "Hosting", "description": "Confident camera presence, clean diction and TV pacing.", "badge": "Take 01" },
+      { "title": "Shooting", "description": "Safe lighting, editorial framing and light miking.", "badge": "Light + Audio" },
+      { "title": "Production", "description": "Rundown, cues and timed blocks.", "badge": "CH A1" }
+    ],
+    "editItems": [
+      { "title": "Script", "description": "Concise beats, clear hooks and timed delivery.", "badge": "Script" },
+      { "title": "Editing", "description": "Precise cuts, subtle sound design and light graphics.", "badge": "Timeline" },
+      { "title": "Social Video", "description": "Vertical focus, fast hooks and lean finishing.", "badge": "9:16" }
     ]
   },
   "showreel": {
@@ -86,7 +89,11 @@
   "skills": {
     "title": "Toolkit",
     "subtitle": "Studio and post stack",
-    "chips": ["On-air", "Script", "Post", "Shooting", "Planning", "Interviewing"],
+    "categories": [
+      { "title": "Technical", "items": ["On-air", "Shooting", "Lighting", "Interviewing"] },
+      { "title": "Post", "items": ["Script", "Editing", "Sound design", "Light motion"] },
+      { "title": "Presence", "items": ["Diction", "Timing", "Pacing", "Hosting"] }
+    ],
     "tools": ["Premiere Pro", "DaVinci Resolve", "Audition", "After Effects", "Figma", "Notion", "Google Workspace", "OBS Studio"]
   },
   "contact": {
@@ -105,6 +112,7 @@
       "message": "Message",
       "submit": "Send"
     },
+    "availabilityLabel": "Availability",
     "availability": "Available for projects, freelance and academic collabs.",
     "qr": "Scan the QR"
   },
@@ -116,6 +124,13 @@
   },
   "footer": {
     "rights": "© 2026 Isabela Machado. Broadcast aesthetic and clean set.",
-    "pdf": "PDF"
+    "pdf": "PDF",
+    "links": {
+      "about": "About",
+      "highlights": "Highlights",
+      "showreel": "Showreel",
+      "skills": "Skills",
+      "contact": "Contact"
+    }
   }
 }

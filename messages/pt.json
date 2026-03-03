@@ -13,7 +13,7 @@
   "hero": {
     "tag": "Broadcast • Estúdio • On-air • Pós",
     "headline": "Isabela Machado",
-    "value": "Estética de estúdio aplicada a sets, doc e social: ritmo, dicção e acabamento limpo.",
+    "value": "Luz, enquadramento e ritmo guiados pelo roteiro. Presença on-camera com acabamento de estúdio.",
     "ctaPdf": "Baixar PDF",
     "ctaContact": "Entrar em contato",
     "rotate": ["Apresentação", "Roteiro", "Edição", "Captação", "Produção"],
@@ -21,30 +21,33 @@
     "lowerThirdBottom": "Rádio & TV • 1º semestre"
   },
   "about": {
-    "title": "Estúdio pessoal",
+    "title": "Sobre mim / Press Kit",
     "subtitle": "Retrato de controle de estúdio",
-    "body": "Estudante de Rádio & TV (1º semestre) que conduz câmera, apresenta e finaliza com ritmo televisivo. Trago estética broadcast para doc curtos, magazine e vertical com grafismo leve.",
+    "body": "Sou Isabela Machado — estudante de Rádio & TV (1º semestre) com olhar de estúdio. Luz, enquadramento e ritmo guiados pelo roteiro. Trabalho com presença on-camera, narrativa editorial e edição que funciona em telas digitais e broadcast.",
     "metrics": [
       { "label": "Horas em estúdio e corte", "value": "120h" },
       { "label": "Idiomas on-air", "value": "PT • EN • ES" }
     ],
     "cards": [
-      { "title": "Rádio & TV — 1º semestre", "description": "Base técnica em estúdio, corte e operação." },
-      { "title": "Idiomas — PT/EN/ES", "description": "Entrega bilíngue em câmera e roteiro." },
-      { "title": "Foco — Audiovisual", "description": "Broadcast visual com narrativa clara." },
-      { "title": "Disponível para projetos", "description": "Curta, branded content e social video." }
+      { "title": "Rádio & TV — 1º semestre", "description": "Base técnica de estúdio, corte e operação." },
+      { "title": "Idiomas — PT/EN/ES", "description": "Entrega trilíngue em câmera e roteiro." },
+      { "title": "Foco — Audiovisual", "description": "Narrativa broadcast com grafismo leve." },
+      { "title": "Disponível para projetos", "description": "Doc curto, magazine, vertical e branded." }
     ]
   },
   "highlights": {
     "title": "Destaques",
     "subtitle": "O que entrego ao vivo e na pós",
-    "items": [
-      { "title": "Apresentação", "description": "Entrega de câmera confiante, dicção limpa e ritmo televisivo." },
-      { "title": "Roteiro", "description": "Pautas objetivas, ganchos claros e tempo bem marcado." },
-      { "title": "Edição", "description": "Corte preciso, sound design sutil e gráficos leves." },
-      { "title": "Captação", "description": "Luz segura, enquadramento editorial e cuidado com áudio." },
-      { "title": "Social Video", "description": "Vertical, ganchos rápidos e finalização enxuta." },
-      { "title": "Produção", "description": "Planejamento, logística de estúdio e controle de pauta." }
+    "tabs": { "set": "No set", "edit": "Na ilha" },
+    "setItems": [
+      { "title": "Apresentação", "description": "Entrega de câmera confiante, dicção limpa e ritmo televisivo.", "badge": "Take 01" },
+      { "title": "Captação", "description": "Luz segura, enquadramento editorial e microfonação leve.", "badge": "Luz + Áudio" },
+      { "title": "Produção", "description": "Rundown, entradas, saídas e tempo cronometrado.", "badge": "CH A1" }
+    ],
+    "editItems": [
+      { "title": "Roteiro", "description": "Pautas objetivas, ganchos claros e tempo marcado.", "badge": "Script" },
+      { "title": "Edição", "description": "Corte preciso, sound design sutil e gráficos leves.", "badge": "Timeline" },
+      { "title": "Social Video", "description": "Vertical, ganchos rápidos e finalização enxuta.", "badge": "9:16" }
     ]
   },
   "showreel": {
@@ -86,7 +89,11 @@
   "skills": {
     "title": "Ferramentas",
     "subtitle": "Stack de estúdio e pós",
-    "chips": ["On-air", "Roteiro", "Pós", "Captação", "Planejamento", "Entrevistas"],
+    "categories": [
+      { "title": "Técnicas", "items": ["On-air", "Captação", "Iluminação", "Entrevistas"] },
+      { "title": "Pós", "items": ["Roteiro", "Edição", "Sound design", "Motion leve"] },
+      { "title": "Presença", "items": ["Dicção", "Tempo", "Pacing", "Apresentação"] }
+    ],
     "tools": ["Premiere Pro", "DaVinci Resolve", "Audition", "After Effects", "Figma", "Notion", "Google Workspace", "OBS Studio"]
   },
   "contact": {
@@ -105,6 +112,7 @@
       "message": "Mensagem",
       "submit": "Enviar"
     },
+    "availabilityLabel": "Disponibilidade",
     "availability": "Disponível para projetos, freelas e collabs acadêmicas.",
     "qr": "Escaneie o QR"
   },
@@ -116,6 +124,13 @@
   },
   "footer": {
     "rights": "© 2026 Isabela Machado. Estética broadcast e set limpo.",
-    "pdf": "PDF"
+    "pdf": "PDF",
+    "links": {
+      "about": "Sobre",
+      "highlights": "Destaques",
+      "showreel": "Showreel",
+      "skills": "Skills",
+      "contact": "Contato"
+    }
   }
 }

@@ -43,9 +43,10 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          <div className="glass rounded-2xl p-6 md:p-8">
-            <div className="grid gap-3 sm:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-[1.1fr_0.9fr]">
+          <div className="glass relative overflow-hidden rounded-2xl border border-white/10 p-6 md:p-8">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.08),transparent_55%)] opacity-60" aria-hidden />
+            <div className="relative grid gap-3 sm:grid-cols-2">
               <Button href="https://wa.me/" variant="primary" className="w-full justify-center">
                 {t("buttons.whatsapp")}
               </Button>
@@ -59,16 +60,29 @@ export default function Contact() {
                 {t("buttons.linkedin")}
               </Button>
             </div>
-            <div className="mt-6 rounded-xl border border-white/10 bg-white/5 p-4 text-sm text-white/70">
-              {t("availability")}
+            <div className="relative mt-6 grid gap-4 rounded-xl border border-white/10 bg-white/5 p-4 text-sm text-white/80 md:grid-cols-[1.2fr_0.8fr] md:items-center">
+              <div>
+                <div className="text-xs uppercase tracking-[0.2em] text-white/60">{t("availabilityLabel")}</div>
+                <div className="mt-1 font-semibold text-white">{t("availability")}</div>
+              </div>
+              <div className="flex items-center justify-end gap-2 text-xs font-mono uppercase tracking-[0.18em] text-white/70">
+                <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-2 py-1">
+                  <span className="h-2 w-2 rounded-full bg-(--green)" />
+                  ON AIR
+                </span>
+                <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-2 py-1">
+                  {t("qr")}
+                </span>
+              </div>
             </div>
           </div>
-          <div className="glass rounded-2xl p-6 md:p-8">
-            <form className="grid gap-4">
+          <div className="glass relative overflow-hidden rounded-2xl border border-white/10 p-6 md:p-8">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(45,107,255,0.14),transparent_55%)] opacity-50" aria-hidden />
+            <form className="relative grid gap-4">
               <label className="text-sm font-semibold text-white/80">
                 {t("form.name")}
                 <input
-                  className="mt-2 w-full rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-white focus:outline-none"
+                  className="mt-2 w-full rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-(--magenta)"
                   type="text"
                   name="name"
                   placeholder=""
@@ -77,7 +91,7 @@ export default function Contact() {
               <label className="text-sm font-semibold text-white/80">
                 {t("form.email")}
                 <input
-                  className="mt-2 w-full rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-white focus:outline-none"
+                  className="mt-2 w-full rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-(--magenta)"
                   type="email"
                   name="email"
                   placeholder=""
@@ -86,14 +100,20 @@ export default function Contact() {
               <label className="text-sm font-semibold text-white/80">
                 {t("form.message")}
                 <textarea
-                  className="mt-2 min-h-30 w-full rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-white focus:outline-none"
+                  className="mt-2 min-h-32 w-full rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-(--magenta)"
                   name="message"
                   placeholder=""
                 />
               </label>
-              <Button type="submit" variant="primary" className="justify-center">
-                {t("form.submit")}
-              </Button>
+              <div className="grid gap-4 sm:grid-cols-[1fr_120px] sm:items-center">
+                <Button type="submit" variant="primary" className="justify-center">
+                  {t("form.submit")}
+                </Button>
+                <div className="relative flex h-full items-center justify-center rounded-xl border border-white/12 bg-black/30 p-3">
+                  <div className="h-20 w-20 rounded-lg border border-white/20 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.08),transparent_60%)]" />
+                  <div className="absolute inset-0 rounded-xl border border-white/10" aria-hidden />
+                </div>
+              </div>
             </form>
           </div>
         </div>
