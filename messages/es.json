@@ -2,16 +2,18 @@
   "nav": {
     "about": "Sobre mí",
     "highlights": "Destacados",
-    "projects": "Proyectos",
+    "showreel": "Showreel",
+    "formats": "Formatos",
+    "process": "Proceso",
     "skills": "Skills",
     "contact": "Contacto",
     "pdf": "Descargar PDF"
   },
   "intro": { "light": "LUZ.", "camera": "CÁMARA.", "action": "ACCIÓN." },
   "hero": {
-    "tag": "RADIO Y TV • CONTENIDO • PRESENTACIÓN • EDICIÓN",
+    "tag": "Broadcast • Estudio • On-air • Post",
     "headline": "Isabela Machado",
-    "value": "Narrativas con estética de estudio e impacto en pantalla.",
+    "value": "Estética de estudio para set, doc y social: ritmo, dicción y acabado limpio.",
     "ctaPdf": "Descargar PDF",
     "ctaContact": "Contacto",
     "rotate": ["Presentación", "Guion", "Edición", "Grabación", "Producción"],
@@ -19,9 +21,13 @@
     "lowerThirdBottom": "Radio y TV • 1º semestre"
   },
   "about": {
-    "title": "Sobre mí",
-    "subtitle": "Ficha rápida",
-    "body": "Estudiante de Radio y TV (1º semestre) con mirada de estudio: luz, encuadre y ritmo guiados por el guion. Busco proyectos que combinen cámara, conducción y edición ágil para pantallas digitales.",
+    "title": "Estudio personal",
+    "subtitle": "Retrato de control de estudio",
+    "body": "Estudiante de Radio y TV (1º semestre) que conduce cámara, presenta y finaliza con ritmo televisivo. Llevo estética broadcast a docs cortos, magazine y vertical con gráficos limpios.",
+    "metrics": [
+      { "label": "Horas en set y en edición", "value": "120h" },
+      { "label": "Idiomas on-air", "value": "PT • EN • ES" }
+    ],
     "cards": [
       { "title": "Radio y TV — 1º semestre", "description": "Base técnica en estudio, corte y operación." },
       { "title": "Idiomas — PT/EN/ES", "description": "Entrega bilingüe en cámara y guion." },
@@ -31,7 +37,7 @@
   },
   "highlights": {
     "title": "Destacados",
-    "subtitle": "Lo que aporto en set y post",
+    "subtitle": "Lo que entrego en vivo y en post",
     "items": [
       { "title": "Presentación", "description": "Cámara segura, dicción limpia y ritmo televisivo." },
       { "title": "Guion", "description": "Ideas concisas, ganchos claros y timing marcado." },
@@ -41,22 +47,46 @@
       { "title": "Producción", "description": "Planeación, logística de estudio y control de rundown." }
     ]
   },
-  "projects": {
-    "title": "Proyectos",
-    "subtitle": "Selección editorial",
-    "view": "Ver"
+  "showreel": {
+    "title": "Showreel vivo + doc",
+    "subtitle": "Escenas que resumen mi flujo",
+    "description": "Magazine de estudio, doc rápido y pack vertical con gráficos limpios. Llevo ritmo, conducción y post ágil para entregar versiones broadcast y social.",
+    "ctaPdf": "PDF actualizado",
+    "ctaContact": "Grabemos",
+    "live": "on air",
+    "teaser": "Frames disponibles a pedido",
+    "hint": "Pide el enlace privado para ver.",
+    "status": "Master listo",
+    "chaptersTitle": "Capítulos",
+    "runtime": "Duración",
+    "ctaDeck": "Envió el deck con créditos, setup técnico y tiempo de preparación.",
+    "chapters": [
+      { "title": "Magazine — apertura + bloque 1", "timecode": "00:00" },
+      { "title": "Doc corto — personaje + ritmo", "timecode": "01:10" },
+      { "title": "Pack vertical — ganchos rápidos", "timecode": "02:05" }
+    ]
+  },
+  "formats": {
+    "title": "Formatos que entrego",
+    "subtitle": "Del estudio al 9:16",
+    "description": "Productos listos para set, post y distribución. Guion, conducción, operación básica y finalización con subtítulos y gráficos ligeros.",
+    "label": "Paquetes con tiempos y entregables"
+  },
+  "process": {
+    "title": "Proceso de entrega",
+    "subtitle": "Guion cerrado, cámara on, master enviado",
+    "description": "Alineo conducción de estudio, doc ágil y vertical con el mismo cuidado: rundown claro, cámara segura, audio limpio y acabado para el canal o la marca.",
+    "label": "Workflow broadcast",
+    "steps": [
+      { "title": "Pauta + ritmo", "description": "Briefing, guion, escaleta y duración cronometrada.", "badge": "pre" },
+      { "title": "Set + conducción", "description": "Operación base, cámara, microfoneo ligero y entrega on-air.", "badge": "set" },
+      { "title": "Post + social", "description": "Corte preciso, sound design, gfx ligero y versiones vertical/subtitulada.", "badge": "post" }
+    ]
   },
   "skills": {
-    "title": "Skills",
-    "subtitle": "Herramientas en mi flujo",
-    "chips": [
-      "Presentación on-air",
-      "Guion y escaleta",
-      "Edición y motion leve",
-      "Grabación básica",
-      "Planificación de historias",
-      "Entrevistas"
-    ],
+    "title": "Toolkit",
+    "subtitle": "Stack de estudio y post",
+    "chips": ["On-air", "Guion", "Post", "Grabación", "Planeación", "Entrevistas"],
     "tools": ["Premiere Pro", "DaVinci Resolve", "Audition", "After Effects", "Figma", "Notion", "Google Workspace", "OBS Studio"]
   },
   "contact": {
@@ -85,7 +115,7 @@
     "preview": "Vista previa"
   },
   "footer": {
-    "rights": "© 2026 Isabela Machado. Estética broadcast.",
+    "rights": "© 2026 Isabela Machado. Estética broadcast y set limpio.",
     "pdf": "PDF"
   }
 }

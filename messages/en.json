@@ -2,16 +2,18 @@
   "nav": {
     "about": "About",
     "highlights": "Highlights",
-    "projects": "Projects",
+    "showreel": "Showreel",
+    "formats": "Formats",
+    "process": "Process",
     "skills": "Skills",
     "contact": "Contact",
     "pdf": "Download PDF"
   },
   "intro": { "light": "LIGHT.", "camera": "CAMERA.", "action": "ACTION." },
   "hero": {
-    "tag": "BROADCAST • CONTENT • HOSTING • EDITING",
+    "tag": "Broadcast • Studio • On-air • Post",
     "headline": "Isabela Machado",
-    "value": "Studio-grade storytelling with on-screen impact.",
+    "value": "Studio aesthetic for set, doc and social: pacing, diction and clean finishing.",
     "ctaPdf": "Download PDF",
     "ctaContact": "Get in touch",
     "rotate": ["Hosting", "Script", "Editing", "Shooting", "Production"],
@@ -19,9 +21,13 @@
     "lowerThirdBottom": "Radio & TV • 1st semester"
   },
   "about": {
-    "title": "About",
-    "subtitle": "Press kit snapshot",
-    "body": "Radio & TV student (1st semester) with a studio mindset: light, framing and pacing led by the script. I look for projects that mix camera work, hosting and lean editing for digital screens.",
+    "title": "Personal studio",
+    "subtitle": "Control room snapshot",
+    "body": "Radio & TV student (1st semester) who hosts, shoots and finishes with broadcast pacing. I bring a studio look to short docs, magazine formats and vertical pieces with clean graphics.",
+    "metrics": [
+      { "label": "Hours on set and in edit", "value": "120h" },
+      { "label": "On-air languages", "value": "PT • EN • ES" }
+    ],
     "cards": [
       { "title": "Radio & TV — 1st semester", "description": "Technical base in studio, cutting and operation." },
       { "title": "Languages — PT/EN/ES", "description": "Bilingual delivery on-camera and in scripts." },
@@ -31,7 +37,7 @@
   },
   "highlights": {
     "title": "Highlights",
-    "subtitle": "What I deliver on set and in post",
+    "subtitle": "What I deliver live and in post",
     "items": [
       { "title": "Hosting", "description": "Confident camera presence, clean diction and TV pacing." },
       { "title": "Script", "description": "Concise beats, clear hooks and timed delivery." },
@@ -41,22 +47,46 @@
       { "title": "Production", "description": "Planning, studio logistics and rundown control." }
     ]
   },
-  "projects": {
-    "title": "Projects",
-    "subtitle": "An editorial selection",
-    "view": "View"
+  "showreel": {
+    "title": "Showreel live + doc",
+    "subtitle": "Scenes that sum up my flow",
+    "description": "Studio magazine, quick doc and vertical pack with clean graphics. I bring pace, hosting and lean post to deliver broadcast and social versions.",
+    "ctaPdf": "Updated PDF",
+    "ctaContact": "Let’s shoot",
+    "live": "on air",
+    "teaser": "Frames available on request",
+    "hint": "Ask for the private link to watch.",
+    "status": "Master ready",
+    "chaptersTitle": "Chapters",
+    "runtime": "Runtime",
+    "ctaDeck": "I send the deck with credits, tech setup and prep time.",
+    "chapters": [
+      { "title": "Magazine — open + block 1", "timecode": "00:00" },
+      { "title": "Short doc — character + pace", "timecode": "01:10" },
+      { "title": "Vertical pack — fast hooks", "timecode": "02:05" }
+    ]
+  },
+  "formats": {
+    "title": "Formats I deliver",
+    "subtitle": "From studio to 9:16",
+    "description": "Ready-made products for set, post and distribution. Script, hosting, basic operation and finishing with captions and light graphics.",
+    "label": "Packages with timings and deliverables"
+  },
+  "process": {
+    "title": "Delivery process",
+    "subtitle": "Script locked, camera on, master sent",
+    "description": "I align studio hosting, agile doc and vertical work with the same care: clear rundown, safe camera, clean audio and finishing tailored to channel or brand.",
+    "label": "Broadcast workflow",
+    "steps": [
+      { "title": "Beat + pacing", "description": "Briefing, script, rundown and timed duration.", "badge": "pre" },
+      { "title": "Set + hosting", "description": "Base operation, camera, light miking and on-air delivery.", "badge": "set" },
+      { "title": "Post + social", "description": "Precise cut, sound design, light gfx and vertical/captioned versions.", "badge": "post" }
+    ]
   },
   "skills": {
-    "title": "Skills",
-    "subtitle": "Tools in my daily flow",
-    "chips": [
-      "On-air hosting",
-      "Scripting & rundown",
-      "Editing & light motion",
-      "Basic shooting",
-      "Story planning",
-      "Interviewing"
-    ],
+    "title": "Toolkit",
+    "subtitle": "Studio and post stack",
+    "chips": ["On-air", "Script", "Post", "Shooting", "Planning", "Interviewing"],
     "tools": ["Premiere Pro", "DaVinci Resolve", "Audition", "After Effects", "Figma", "Notion", "Google Workspace", "OBS Studio"]
   },
   "contact": {
@@ -85,7 +115,7 @@
     "preview": "Preview"
   },
   "footer": {
-    "rights": "© 2026 Isabela Machado. Broadcast aesthetic.",
+    "rights": "© 2026 Isabela Machado. Broadcast aesthetic and clean set.",
     "pdf": "PDF"
   }
 }

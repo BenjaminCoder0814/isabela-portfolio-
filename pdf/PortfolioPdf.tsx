@@ -2,7 +2,7 @@
 
 import { Document, Page, Text, View, PDFViewer, PDFDownloadLink } from "@react-pdf/renderer";
 import { useTranslations } from "next-intl";
-import { projects } from "@/lib/projects.data";
+import { formats } from "@/lib/formats.data";
 import { pdfStyles } from "./pdfStyles";
 
 export function PortfolioPdf({ locale, preview = false }: { locale: string; preview?: boolean }) {
@@ -33,15 +33,37 @@ export function PortfolioPdf({ locale, preview = false }: { locale: string; prev
         </View>
 
         <View style={pdfStyles.section}>
-          <Text style={pdfStyles.heading}>{t("projects.title")}</Text>
+          <Text style={pdfStyles.heading}>{t("showreel.title")}</Text>
+          <Text style={pdfStyles.text}>{t("showreel.description")}</Text>
+        </View>
+
+        <View style={pdfStyles.section}>
+          <Text style={pdfStyles.heading}>{t("formats.title")}</Text>
           <View>
-            {projects.map((p) => (
-              <View key={p.id} style={pdfStyles.card}>
-                <Text style={{ fontWeight: 700 }}>{p.title[locale as "pt" | "en" | "es"]}</Text>
-                <Text style={{ fontSize: 10, color: "#A9B0C2", marginBottom: 4 }}>
-                  {p.role[locale as "pt" | "en" | "es"]}
-                </Text>
-                <Text style={pdfStyles.text}>{p.description[locale as "pt" | "en" | "es"]}</Text>
+            {formats.map((f) => (
+              <View key={f.id} style={pdfStyles.card}>
+                <Text style={{ fontWeight: 700 }}>{f.title[locale as "pt" | "en" | "es"]}</Text>
+                <Text style={{ fontSize: 10, color: "#A9B0C2", marginBottom: 4 }}>{f.duration}</Text>
+                <Text style={pdfStyles.text}>{f.description[locale as "pt" | "en" | "es"]}</Text>
+                <View style={pdfStyles.chips}>
+                  {f.deliverables[locale as "pt" | "en" | "es"].map((item) => (
+                    <Text key={item} style={pdfStyles.chip}>
+                      {item}
+                    </Text>
+                  ))}
+                </View>
+              </View>
+            ))}
+          </View>
+        </View>
+
+        <View style={pdfStyles.section}>
+          <Text style={pdfStyles.heading}>{t("process.title")}</Text>
+          <View>
+            {(t.raw("process.steps") as { title: string; description: string; badge: string }[]).map((step) => (
+              <View key={step.title} style={pdfStyles.card}>
+                <Text style={{ fontWeight: 700 }}>{step.title}</Text>
+                <Text style={pdfStyles.text}>{step.description}</Text>
               </View>
             ))}
           </View>

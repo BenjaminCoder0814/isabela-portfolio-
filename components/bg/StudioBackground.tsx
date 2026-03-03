@@ -28,7 +28,8 @@ export default function StudioBackground() {
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(45,107,255,0.14),transparent_35%),radial-gradient(circle_at_80%_10%,rgba(255,45,146,0.18),transparent_32%),radial-gradient(circle_at_30%_80%,rgba(44,255,154,0.12),transparent_30%),linear-gradient(140deg,#0b0d12,#0b0d12_45%,#101320)]" />
-      <div className="absolute inset-0 mix-blend-screen opacity-40 bg-[repeating-linear-gradient(0deg,rgba(255,255,255,0.04)_0px,rgba(255,255,255,0.04)_1px,transparent_1px,transparent_3px)]" />
+      <div className="absolute inset-0 mix-blend-screen opacity-25 bg-[repeating-linear-gradient(90deg,rgba(255,255,255,0.04)_0px,rgba(255,255,255,0.04)_1px,transparent_1px,transparent_24px)]" />
+      <div className="absolute inset-0 mix-blend-screen opacity-35 bg-[repeating-linear-gradient(0deg,rgba(255,255,255,0.05)_0px,rgba(255,255,255,0.05)_1px,transparent_1px,transparent_18px)]" />
       <motion.div
         style={{ x: parallaxX, y: parallaxY }}
         className="absolute inset-0"

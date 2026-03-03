@@ -7,7 +7,7 @@ import LanguageSwitcher from "./LanguageSwitcher";
 import { type Locale } from "@/i18n";
 import { motion, AnimatePresence } from "framer-motion";
 
-const sections = ["about", "highlights", "projects", "skills", "contact"] as const;
+const sections = ["about", "highlights", "showreel", "formats", "process", "skills", "contact"] as const;
 
 export default function Navbar({ locale }: { locale: Locale }) {
   const t = useTranslations("nav");
@@ -38,23 +38,24 @@ export default function Navbar({ locale }: { locale: Locale }) {
       className={`fixed left-0 right-0 top-0 z-40`}
     >
       <div
-        className={`section-shell mt-4 rounded-full border border-white/10 bg-(--glass) px-4 py-3 backdrop-blur ${
-          scrolled ? "shadow-lg" : ""
+        className={`section-shell mt-4 rounded-full border border-white/10 bg-black/40 px-4 py-3 backdrop-blur ${
+          scrolled ? "shadow-lg shadow-(--magenta)/20" : ""
         }`}
       >
         <div className="flex items-center gap-4 md:gap-6">
-          <Link href={`/${locale}`} className="text-sm font-semibold uppercase tracking-[0.24em]">
-            IM
+          <Link href={`/${locale}`} className="flex items-center gap-2 rounded-full bg-white/5 px-3 py-2 text-xs font-semibold uppercase tracking-[0.24em]">
+            <span className="h-2 w-2 rounded-full bg-(--magenta) shadow-[0_0_0_6px_rgba(255,45,146,0.25)]" />
+            On Air
           </Link>
-          <div className="hidden flex-1 items-center justify-center gap-3 md:flex">
+          <div className="hidden flex-1 items-center justify-center gap-1 md:flex">
             {sections.map((id) => (
-              <Link key={id} href={`/${locale}#${id}`} className="relative px-3 py-1 text-sm uppercase tracking-[0.16em] text-white/80">
+              <Link key={id} href={`/${locale}#${id}`} className="relative px-3 py-2 text-xs uppercase tracking-[0.18em] text-white/80">
                 {t(id)}
                 <AnimatePresence>
                   {active === id && (
                     <motion.span
                       layoutId="nav-active"
-                      className="absolute inset-x-0 -bottom-1 h-0.5 rounded-full bg-(--magenta)"
+                      className="absolute inset-x-2 -bottom-1 h-0.5 rounded-full bg-(--magenta)"
                       transition={{ type: "spring", stiffness: 320, damping: 24 }}
                     />
                   )}

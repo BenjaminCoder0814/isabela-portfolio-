@@ -8,11 +8,12 @@ export default function About() {
   const t = useTranslations("about");
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-10%" });
+  const metrics = t.raw("metrics") as { label: string; value: string }[];
 
   return (
     <section id="about" className="section-spacing dark-section angled-divider">
       <div className="section-shell">
-        <div className="grid gap-10 md:grid-cols-2 md:items-start">
+        <div className="grid gap-10 md:grid-cols-[1.2fr_1fr] md:items-start">
           <div className="max-w-xl">
             <motion.p
               ref={ref}
@@ -39,6 +40,14 @@ export default function About() {
             >
               {t("body")}
             </motion.p>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              {metrics.map((metric) => (
+                <div key={metric.label} className="rounded-xl border border-white/10 bg-white/5 px-4 py-3">
+                  <div className="text-3xl font-semibold text-white">{metric.value}</div>
+                  <div className="text-sm uppercase tracking-[0.14em] text-white/60">{metric.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {(t.raw("cards") as { title: string; description: string }[]).map((card, idx) => (

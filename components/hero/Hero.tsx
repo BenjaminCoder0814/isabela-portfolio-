@@ -20,14 +20,14 @@ export default function Hero({ locale }: { locale: Locale }) {
 
   return (
     <section id="hero" className="section-shell section-spacing relative overflow-hidden">
-      <div className="absolute inset-0 -z-10 opacity-50 bg-[radial-gradient(circle_at_80%_20%,rgba(45,107,255,0.16),transparent_40%)]" />
+      <div className="absolute inset-0 -z-10 opacity-60 bg-[radial-gradient(circle_at_20%_10%,rgba(255,45,146,0.16),transparent_40%),radial-gradient(circle_at_80%_20%,rgba(45,107,255,0.16),transparent_42%)]" />
       <div className="grid gap-10 md:grid-cols-2 md:items-center">
         <div className="flex flex-col gap-4">
           <motion.span
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.1, duration: 0.5 }}
-            className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-white/80"
+            className="inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-white/90 shadow-[0_12px_50px_rgba(255,45,146,0.25)]"
           >
             {t("tag")}
           </motion.span>
