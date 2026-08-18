@@ -358,10 +358,15 @@
     border: 1px solid var(--line);
     background: var(--bg-200);
     font-family: var(--font-jetbrains), ui-monospace, monospace;
-    font-size: 10px;
+    font-size: 11px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--tx-md);
+  }
+  @media (min-width: 640px) {
+    .chip {
+      font-size: 10px;
+    }
   }
 }
 

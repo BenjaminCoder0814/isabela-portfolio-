@@ -52,7 +52,7 @@ export default function Deliver() {
                 <span style={{ color: `var(--${ACCENTS[i]})` }}>
                   <Icon d={ICONS[i]} />
                 </span>
-                <span className="font-mono text-[10px] tracking-[0.2em] text-[var(--tx-lo)]">
+                <span className="font-mono text-[11px] sm:text-[10px] tracking-[0.2em] text-[var(--tx-lo)]">
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </div>

@@ -61,7 +61,7 @@ export default function Lab() {
                 <span style={{ color: `var(--${KIND_ACCENT[p.kind]})` }}>
                   <KindIcon kind={p.kind} />
                 </span>
-                <span className="font-mono text-[10px] tracking-[0.2em] text-[var(--tx-lo)] uppercase">
+                <span className="font-mono text-[11px] sm:text-[10px] tracking-[0.2em] text-[var(--tx-lo)] uppercase">
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </div>
@@ -92,7 +92,7 @@ export default function Lab() {
                       <span style={{ color: `var(--${accent})` }}>
                         <KindIcon kind={item.kind} />
                       </span>
-                      <span className="font-mono text-[10px] tracking-[0.18em] text-[var(--tx-lo)]">
+                      <span className="font-mono text-[11px] sm:text-[10px] tracking-[0.18em] text-[var(--tx-lo)]">
                         {item.tag}
                       </span>
                     </div>
@@ -121,7 +121,7 @@ export default function Lab() {
                     </ul>
 
                     {item.date && (
-                      <span className="mt-auto pt-5 font-mono text-[10px] tracking-[0.16em] text-[var(--tx-lo)]">
+                      <span className="mt-auto pt-5 font-mono text-[11px] sm:text-[10px] tracking-[0.16em] text-[var(--tx-lo)]">
                         {item.date}
                       </span>
                     )}

@@ -51,7 +51,7 @@ export default function Journey() {
 
             <StudioCard spot={ACCENTS[i % 4]} className="p-6 sm:p-7">
               <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
-                <p className="font-mono text-[10px] tracking-[0.2em] text-[var(--tx-lo)] uppercase">
+                <p className="font-mono text-[11px] sm:text-[10px] tracking-[0.2em] text-[var(--tx-lo)] uppercase">
                   <time dateTime={item.start}>{item.period.split("—")[0].trim()}</time>
                   {item.period.includes("—") && (
                     <>
@@ -60,7 +60,7 @@ export default function Journey() {
                     </>
                   )}
                 </p>
-                <p className="font-mono text-[10px] tracking-[0.16em] text-[var(--tx-lo)] uppercase">
+                <p className="font-mono text-[11px] sm:text-[10px] tracking-[0.16em] text-[var(--tx-lo)] uppercase">
                   {item.org}
                 </p>
               </div>

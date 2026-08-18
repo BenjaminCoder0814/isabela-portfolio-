@@ -99,7 +99,7 @@ export default function Hero() {
       ref={sectionRef}
       className="relative flex min-h-[720px] items-center overflow-hidden lg:min-h-[720px]"
     >
-      <div className="shell relative z-[1] grid grid-cols-1 items-center gap-12 pt-28 pb-20 lg:grid-cols-12 lg:gap-16 lg:pt-20 lg:pb-12">
+      <div className="shell relative z-10 grid grid-cols-1 items-center gap-8 pt-24 pb-16 sm:gap-10 lg:grid-cols-12 lg:gap-16 lg:pt-20 lg:pb-12">
         {/* ── TEXTO ── */}
         <m.div
           style={{ y: textY, opacity: fade }}
@@ -161,7 +161,7 @@ export default function Hero() {
             {stats.map((s) => (
               <li
                 key={s}
-                className="font-mono text-[10.5px] tracking-[0.16em] text-[var(--tx-lo)] uppercase"
+                className="font-mono text-[11px] sm:text-[10.5px] tracking-[0.16em] text-[var(--tx-lo)] uppercase"
               >
                 {s}
               </li>
@@ -176,7 +176,7 @@ export default function Hero() {
         >
           <div
             ref={frameRef}
-            className="relative mx-auto w-full max-w-[420px] overflow-hidden rounded-[22px] border border-[var(--line-strong)] bg-[var(--bg-200)] shadow-[inset_0_1px_0_rgba(255,255,255,.07),0_40px_90px_-40px_#000]"
+            className="relative mx-auto w-full max-w-[248px] overflow-hidden rounded-[22px] sm:max-w-[320px] lg:max-w-[420px] border border-[var(--line-strong)] bg-[var(--bg-200)] shadow-[inset_0_1px_0_rgba(255,255,255,.07),0_40px_90px_-40px_#000]"
           >
             <div className="relative aspect-4/5 w-full overflow-hidden">
               {!imgError ? (
@@ -185,7 +185,7 @@ export default function Hero() {
                   alt="Isabela Machado"
                   fill
                   priority
-                  sizes="(max-width: 1024px) 90vw, 420px"
+                  sizes="(max-width: 640px) 248px, (max-width: 1024px) 320px, 420px"
                   placeholder="blur"
                   blurDataURL={BLUR_DATA}
                   onError={() => setImgError(true)}

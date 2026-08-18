@@ -100,9 +100,9 @@ export default function Contact() {
   const field =
     "peer w-full rounded-xl border border-[var(--line)] bg-[var(--bg-100)] px-4 pt-6 pb-2 text-[15px] text-[var(--tx-hi)] outline-none transition-colors placeholder-transparent focus:border-[var(--key)] focus:ring-2 focus:ring-[color-mix(in_srgb,var(--key)_45%,transparent)] aria-invalid:border-[var(--key)]";
   const label =
-    "pointer-events-none absolute left-4 top-2 font-mono text-[10px] tracking-[0.16em] text-[var(--tx-lo)] uppercase transition-all peer-placeholder-shown:top-4.5 peer-placeholder-shown:text-[13px] peer-placeholder-shown:tracking-normal peer-placeholder-shown:normal-case peer-focus:top-2 peer-focus:text-[10px] peer-focus:tracking-[0.16em] peer-focus:uppercase";
+    "pointer-events-none absolute left-4 top-2 font-mono text-[11px] sm:text-[10px] tracking-[0.16em] text-[var(--tx-lo)] uppercase transition-all peer-placeholder-shown:top-4.5 peer-placeholder-shown:text-[13px] peer-placeholder-shown:tracking-normal peer-placeholder-shown:normal-case peer-focus:top-2 peer-focus:text-[11px] sm:text-[10px] peer-focus:tracking-[0.16em] peer-focus:uppercase";
   const errCls =
-    "mt-1.5 font-mono text-[10px] tracking-[0.12em] text-[var(--key)] uppercase";
+    "mt-1.5 font-mono text-[11px] sm:text-[10px] tracking-[0.12em] text-[var(--key)] uppercase";
 
   return (
     <Section id="contact" depth="000" spot="key">
@@ -135,7 +135,7 @@ export default function Contact() {
           </div>
 
           <StudioCard spot="rim" className="p-6">
-            <p className="flex items-center gap-2.5 font-mono text-[10px] tracking-[0.18em] text-[var(--rim)] uppercase">
+            <p className="flex items-center gap-2.5 font-mono text-[11px] sm:text-[10px] tracking-[0.18em] text-[var(--rim)] uppercase">
               <span
                 className="h-2 w-2 rounded-full bg-[var(--rim)] shadow-[0_0_8px_var(--rim)]"
                 style={{ animation: "status-pulse 2.4s ease-in-out infinite" }}
@@ -251,7 +251,7 @@ export default function Contact() {
             <p
               role="status"
               aria-live="polite"
-              className="min-h-[1.4em] font-mono text-[10px] leading-relaxed tracking-[0.1em] text-[var(--tx-lo)] uppercase"
+              className="min-h-[1.4em] font-mono text-[11px] sm:text-[10px] leading-relaxed tracking-[0.1em] text-[var(--tx-lo)] uppercase"
             >
               {notice || (status === "sent" ? t("form.sentNote") : t("form.note"))}
             </p>

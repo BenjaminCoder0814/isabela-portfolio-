@@ -34,18 +34,24 @@ const ORDER: Phase[] = [
   "wipe",
 ];
 
-/** t em ms no desktop; o mobile multiplica por 3.2/4.2 */
+/**
+ * t em ms. Só a montagem da campanha encolhe no mobile; o tempo de leitura
+ * da frase é FIXO, porque ler não fica mais rápido em tela menor.
+ */
 const MARKS: Record<Phase, number> = {
   idle: 0,
   typing: 150,
-  audience: 700,
-  budget: 1500,
-  creatives: 2300,
-  result: 3000,
-  collapse: 3700,
-  phrase: 3900,
-  wipe: 4200,
+  audience: 600,
+  budget: 1300,
+  creatives: 2000,
+  result: 2600,
+  collapse: 3200,
+  phrase: 3400,
+  wipe: 3400, // + READ_HOLD, aplicado abaixo
 };
+
+/** quanto a frase-âncora fica parada na tela, para dar tempo de ler */
+const READ_HOLD = 2300;
 
 const at = (p: Phase) => ORDER.indexOf(p);
 
@@ -179,12 +185,14 @@ export default function CampaignBootSequence() {
     }
 
     const isMobile = window.matchMedia("(max-width: 767px)").matches;
-    const k = isMobile ? 3200 / 4200 : 1;
+    const k = isMobile ? 0.82 : 1;
+    /* a montagem encolhe no mobile; a leitura da frase, não */
     const scale = (ms: number) => Math.round(ms * k);
+    const wipeAt = scale(MARKS.phrase) + READ_HOLD;
 
     for (const p of ORDER) {
       if (p === "idle") continue;
-      push(scale(MARKS[p]), () => setPhase(p));
+      push(p === "wipe" ? wipeAt : scale(MARKS[p]), () => setPhase(p));
     }
 
     push(scale(500), () => setSkipVisible(true));
@@ -215,8 +223,8 @@ export default function CampaignBootSequence() {
     });
 
     push(scale(MARKS.collapse), () => setFlash(true));
-    push(scale(MARKS.collapse + 90), () => setFlash(false));
-    push(scale(MARKS.wipe + 500), finish);
+    push(scale(MARKS.collapse) + 90, () => setFlash(false));
+    push(wipeAt + 600, finish);
 
     return () => {
       clearAll();
@@ -438,7 +446,7 @@ export default function CampaignBootSequence() {
         }}
       />
 
-      {skipVisible && !collapsing && (
+      {skipVisible && !wiping && (
         <button
           type="button"
           onClick={finish}

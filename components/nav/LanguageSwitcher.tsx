@@ -37,7 +37,7 @@ export default function LanguageSwitcher() {
             type="button"
             onClick={() => switchTo(code)}
             aria-current={active ? "true" : undefined}
-            className={`rounded-full px-2.5 py-1 font-mono text-[10px] font-bold tracking-[0.14em] transition-colors ${
+            className={`min-h-[40px] min-w-[40px] rounded-full px-3 py-2 font-mono text-[11px] font-bold tracking-[0.14em] transition-colors sm:min-h-0 sm:min-w-0 sm:px-2.5 sm:py-1 sm:text-[10px] ${
               active
                 ? "bg-[var(--key-deep)] text-[#ffffff]"
                 : "text-[var(--tx-md)] hover:bg-[var(--glass)] hover:text-[var(--tx-hi)]"

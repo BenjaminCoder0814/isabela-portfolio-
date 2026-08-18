@@ -43,10 +43,10 @@ export default function Footer() {
             >
               ISABELA MACHADO<span className="text-[var(--key)]">.</span>
             </Link>
-            <p className="mt-3 font-mono text-[10.5px] tracking-[0.16em] text-[var(--tx-lo)] uppercase">
+            <p className="mt-3 font-mono text-[11px] sm:text-[10.5px] tracking-[0.16em] text-[var(--tx-lo)] uppercase">
               {t("tagline")}
             </p>
-            <p className="mt-4 flex items-center gap-2 font-mono text-[10.5px] tracking-[0.16em] text-[var(--rim)] uppercase">
+            <p className="mt-4 flex items-center gap-2 font-mono text-[11px] sm:text-[10.5px] tracking-[0.16em] text-[var(--rim)] uppercase">
               <span
                 className="h-2 w-2 rounded-full bg-[var(--rim)] shadow-[0_0_8px_var(--rim)]"
                 style={{ animation: "status-pulse 2.4s ease-in-out infinite" }}
@@ -59,12 +59,12 @@ export default function Footer() {
           {/* 2 — navegação */}
           <nav aria-label={t("navLabel")}>
             <p className="eyebrow mb-4">{t("navLabel")}</p>
-            <ul className="flex flex-col gap-2.5">
+            <ul className="grid grid-cols-2 gap-x-4 sm:grid-cols-1 sm:gap-y-0">
               {NAV_KEYS.map((k) => (
                 <li key={k}>
                   <a
                     href={`#${k}`}
-                    className="font-mono text-[11px] tracking-[0.14em] text-[var(--tx-md)] uppercase transition-colors hover:text-[var(--key)]"
+                    className="flex min-h-[44px] items-center font-mono text-[11px] tracking-[0.14em] text-[var(--tx-md)] uppercase transition-colors hover:text-[var(--key)] sm:min-h-[36px]"
                   >
                     {nav(k)}
                   </a>
@@ -76,14 +76,14 @@ export default function Footer() {
           {/* 3 — contato */}
           <div className="min-w-0">
             <p className="eyebrow mb-4">{t("contactLabel")}</p>
-            <ul className="flex flex-col gap-2.5">
+            <ul className="flex flex-col">
               {CONTACTS.map((c) => (
                 <li key={c.k} className="min-w-0">
                   <a
                     href={c.href}
                     target={c.k === "email" ? undefined : "_blank"}
                     rel="noopener noreferrer"
-                    className="inline-flex max-w-full items-center gap-2.5 font-mono text-[11px] tracking-[0.1em] text-[var(--tx-md)] transition-colors hover:text-[var(--key)]"
+                    className="inline-flex min-h-[44px] max-w-full items-center gap-2.5 font-mono text-[11px] tracking-[0.1em] text-[var(--tx-md)] transition-colors hover:text-[var(--key)] sm:min-h-[36px]"
                   >
                     <ChannelIcon k={c.k} className="h-4 w-4" />
                     <span className="truncate">{c.label}</span>
@@ -118,7 +118,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-[var(--line-soft)] pt-6 sm:flex-row sm:items-center">
-          <p className="font-mono text-[10.5px] tracking-[0.12em] text-[var(--tx-lo)]">
+          <p className="font-mono text-[11px] sm:text-[10.5px] tracking-[0.12em] text-[var(--tx-lo)]">
             © 2026 Isabela Machado
           </p>
           <span

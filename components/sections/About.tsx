@@ -62,7 +62,7 @@ export default function About() {
                   "linear-gradient(180deg, rgba(5,6,10,.25) 0%, transparent 30%, transparent 55%, rgba(5,6,10,.8) 100%)",
               }}
             />
-            <p className="absolute inset-x-0 bottom-0 p-4 font-mono text-[10px] tracking-[0.18em] text-[var(--tx-hi)] uppercase">
+            <p className="absolute inset-x-0 bottom-0 p-4 font-mono text-[11px] sm:text-[10px] tracking-[0.18em] text-[var(--tx-hi)] uppercase">
               {t("photoCaption")}
             </p>
           </div>
