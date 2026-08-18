@@ -53,12 +53,14 @@ function Pillar({
   delay: number;
 }) {
   return (
-    <m.div
-      initial={{ opacity: 0, x: from }}
-      animate={show ? { opacity: 1, x: 0 } : undefined}
-      transition={{ duration: 0.7, ease: EASE, delay }}
+    <div
       className="card-studio relative p-7"
-      style={{ ["--spot" as string]: `var(--${accent})` }}
+      style={{
+        ["--spot" as string]: `var(--${accent})`,
+        opacity: show ? 1 : 0,
+        transform: show ? "none" : `translateX(${from}px)`,
+        transition: `opacity .7s cubic-bezier(.16,1,.3,1) ${delay}s, transform .7s cubic-bezier(.16,1,.3,1) ${delay}s`,
+      }}
     >
       <span
         aria-hidden="true"
@@ -74,7 +76,7 @@ function Pillar({
         {label}
       </p>
       <p className="mt-4 text-[15px] leading-relaxed text-[var(--tx-md)]">{body}</p>
-    </m.div>
+    </div>
   );
 }
 
@@ -114,23 +116,25 @@ export default function Bridge() {
         </div>
 
         {/* card central — o resultado da soma */}
-        <m.div
-          initial={{ opacity: 0, scale: 0.92 }}
-          animate={show ? { opacity: 1, scale: 1 } : undefined}
-          transition={{ duration: 0.65, ease: EASE, delay: 0.55 }}
+        <div
           className="relative mt-6 w-full max-w-[720px] lg:mt-14"
+          style={{
+            opacity: show ? 1 : 0,
+            transform: show ? "scale(1)" : "scale(.92)",
+            transition:
+              "opacity .65s cubic-bezier(.16,1,.3,1) .55s, transform .65s cubic-bezier(.16,1,.3,1) .55s",
+          }}
         >
-          <m.span
+          <span
             aria-hidden="true"
             className="absolute -inset-2 rounded-[26px]"
             style={{
               background:
                 "radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--key) 26%, transparent), transparent 70%)",
               filter: "blur(24px)",
+              opacity: show ? 0.5 : 0,
+              transition: "opacity 1.1s ease .7s",
             }}
-            initial={{ opacity: 0 }}
-            animate={show ? { opacity: [0, 1, 0.45] } : undefined}
-            transition={{ duration: 1.6, ease: "easeOut", delay: 0.7, times: [0, 0.45, 1] }}
           />
           <div
             className="relative rounded-[22px] border p-8 text-center"
@@ -150,7 +154,7 @@ export default function Bridge() {
               {t("center.body")}
             </p>
           </div>
-        </m.div>
+        </div>
       </div>
     </Section>
   );

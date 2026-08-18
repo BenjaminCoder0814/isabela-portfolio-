@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, type ReactNode } from "react";
-import { m, useInView } from "framer-motion";
+import type { ReactNode } from "react";
+import Reveal from "./Reveal";
 
 type Depth = "000" | "100";
 type Spot = "key" | "fill" | "rim" | "warm";
@@ -41,9 +41,6 @@ export default function Section({
   className?: string;
   children: ReactNode;
 }) {
-  const ref = useRef<HTMLElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
-
   return (
     <>
       <div
@@ -53,7 +50,6 @@ export default function Section({
       />
       <section
         id={id}
-        ref={ref}
         className={`section-pad relative overflow-hidden ${className}`}
         style={{
           background: BG[depth],
@@ -67,14 +63,9 @@ export default function Section({
             background: `radial-gradient(ellipse 55% 45% at ${SPOT_POS[spot]}, color-mix(in srgb, var(--${spot}) 13%, transparent) 0%, transparent 68%)`,
           }}
         />
-        <m.div
-          initial={{ opacity: 0, y: 26 }}
-          animate={inView ? { opacity: 1, y: 0 } : undefined}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="shell relative z-[1]"
-        >
+        <Reveal y={26} className="shell relative z-10">
           {children}
-        </m.div>
+        </Reveal>
       </section>
     </>
   );

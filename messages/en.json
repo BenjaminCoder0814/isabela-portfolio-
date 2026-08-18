@@ -8,7 +8,54 @@
     "about": "About",
     "contact": "Contact",
     "pdf": "Download PDF",
-    "menu": "Menu"
+    "menu": "Menu",
+    "journey": "Track record"
+  },
+  "boot": {
+    "skip": "Skip",
+    "sim": "Simulation",
+    "status": [
+      "Starting campaign…",
+      "Defining target audience…",
+      "Allocating budget…",
+      "Generating creatives…",
+      "Reading results…"
+    ],
+    "panels": {
+      "audience": "Audience",
+      "budget": "Budget",
+      "creatives": "Creatives",
+      "result": "Result"
+    },
+    "slices": [
+      "Meta Ads",
+      "Google Ads",
+      "Testing"
+    ],
+    "kpis": [
+      {
+        "label": "CTR",
+        "value": 2.4,
+        "prefix": "",
+        "suffix": "%",
+        "decimals": 1
+      },
+      {
+        "label": "CPA",
+        "value": 18,
+        "prefix": "R$ ",
+        "suffix": "",
+        "decimals": 0
+      },
+      {
+        "label": "ROAS",
+        "value": 4.1,
+        "prefix": "",
+        "suffix": "x",
+        "decimals": 1
+      }
+    ],
+    "phrase": "I plan the campaign, produce the creative and read the results."
   },
   "hero": {
     "eyebrow": "Paid media · Performance · Creative",
@@ -94,6 +141,65 @@
       }
     ]
   },
+  "journey": {
+    "eyebrow": "Where I learned to produce",
+    "title": "Track record",
+    "sub": "Three and a half years producing real events: schedule, crew, the unexpected, and delivery on the date.",
+    "items": [
+      {
+        "period": "Jan 2023 — Jun 2026",
+        "start": "2023-01",
+        "end": "2026-06",
+        "role": "Associate Director",
+        "org": "Pathfinder Club",
+        "bullets": [
+          "Planning and running camps, from the activity script to the logistics",
+          "Creating and hosting events and programmes",
+          "Team coordination",
+          "Communication with children, families and leadership"
+        ]
+      },
+      {
+        "period": "Jan 2023 — Jun 2026",
+        "start": "2023-01",
+        "end": "2026-06",
+        "role": "Production and organisation",
+        "org": "Music and Worship Ministry",
+        "bullets": [
+          "Repertoire, rota and schedule",
+          "Producing musical events from concept to execution",
+          "Coordination between crew, musicians and leadership",
+          "Support on studio recordings"
+        ]
+      },
+      {
+        "period": "Mar 2025 — Apr 2025",
+        "start": "2025-03",
+        "end": "2025-04",
+        "role": "Script, acting and art direction",
+        "org": "“Eis o Cordeiro” musical · UNASP",
+        "bullets": [
+          "Wrote the script for the show",
+          "Played a character on stage",
+          "Directed costume and designed the sets",
+          "Led the music selection"
+        ]
+      },
+      {
+        "period": "Jun 2025",
+        "start": "2025-06",
+        "end": "2025-06",
+        "role": "Volunteer service",
+        "org": "Xerente Mission 2025 · Tocantins",
+        "bullets": [
+          "15 days in a Xerente indigenous community",
+          "Teamwork well outside the comfort zone",
+          "Communicating with an audience whose references are nothing like your own"
+        ]
+      }
+    ],
+    "closing": "Planning a camp for dozens of children and planning a campaign have more in common than it seems — both only work with a clear brief, a schedule, and someone who solves things on the spot."
+  },
   "lab": {
     "eyebrow": "Applied study",
     "title": "Lab",
@@ -160,19 +266,6 @@
       "Native Portuguese",
       "Intermediate English",
       "Basic Spanish"
-    ],
-    "outsideLabel": "Outside the classroom",
-    "cards": [
-      {
-        "title": "“Eis o Cordeiro” musical",
-        "meta": "UNASP-EC · April 2025",
-        "body": "I wrote the script, played a character and handled costume, set and music selection."
-      },
-      {
-        "title": "Xerente Mission 2025",
-        "meta": "Tocantins · June 2025",
-        "body": "15 days of volunteer service in a Xerente indigenous community."
-      }
     ],
     "closing": "Both taught me the same thing: communication only works when you speak to the audience that exists, not the one you imagined."
   },

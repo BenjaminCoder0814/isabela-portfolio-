@@ -11,7 +11,7 @@ const Particles = dynamic(() => import("./Particles"), { ssr: false });
  * Camada de fundo global. Fica antes do <main>, que sobe para z-index 1.
  * Nada aqui recebe evento de mouse nem entra na árvore de acessibilidade.
  */
-export default function StudioLayer() {
+export default function AtmosphereLayer() {
   /* o chunk das partículas nem é baixado onde elas não rodam */
   const wide = useMediaQuery("(min-width: 768px)");
   const reduced = useMediaQuery("(prefers-reduced-motion: reduce)");

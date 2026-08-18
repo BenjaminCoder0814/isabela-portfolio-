@@ -12,7 +12,7 @@ import {
   type Channel,
 } from "./Contact";
 
-const NAV_KEYS = ["bridge", "deliver", "process", "lab", "stack", "about", "contact"] as const;
+const NAV_KEYS = ["bridge", "deliver", "process", "journey", "lab", "stack", "about", "contact"] as const;
 
 const CONTACTS: { k: Channel; label: string; href: string }[] = [
   { k: "email", label: EMAIL, href: `mailto:${EMAIL}` },

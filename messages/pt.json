@@ -8,7 +8,54 @@
     "about": "Sobre",
     "contact": "Contato",
     "pdf": "Baixar PDF",
-    "menu": "Menu"
+    "menu": "Menu",
+    "journey": "Trajetória"
+  },
+  "boot": {
+    "skip": "Pular",
+    "sim": "Simulação",
+    "status": [
+      "Iniciando campanha…",
+      "Definindo público-alvo…",
+      "Alocando orçamento…",
+      "Gerando criativos…",
+      "Lendo resultados…"
+    ],
+    "panels": {
+      "audience": "Público",
+      "budget": "Orçamento",
+      "creatives": "Criativos",
+      "result": "Resultado"
+    },
+    "slices": [
+      "Meta Ads",
+      "Google Ads",
+      "Teste"
+    ],
+    "kpis": [
+      {
+        "label": "CTR",
+        "value": 2.4,
+        "prefix": "",
+        "suffix": "%",
+        "decimals": 1
+      },
+      {
+        "label": "CPA",
+        "value": 18,
+        "prefix": "R$ ",
+        "suffix": "",
+        "decimals": 0
+      },
+      {
+        "label": "ROAS",
+        "value": 4.1,
+        "prefix": "",
+        "suffix": "x",
+        "decimals": 1
+      }
+    ],
+    "phrase": "Eu planejo a campanha, produzo o criativo e leio o resultado."
   },
   "hero": {
     "eyebrow": "Mídia paga · Performance · Criativo",
@@ -94,6 +141,65 @@
       }
     ]
   },
+  "journey": {
+    "eyebrow": "Onde eu aprendi a produzir",
+    "title": "Trajetória",
+    "sub": "Três anos e meio produzindo evento de verdade: cronograma, equipe, imprevisto e entrega na data.",
+    "items": [
+      {
+        "period": "jan/2023 — jun/2026",
+        "start": "2023-01",
+        "end": "2026-06",
+        "role": "Diretora Associada",
+        "org": "Clube de Desbravadores",
+        "bullets": [
+          "Planejamento e execução de acampamentos, do roteiro de atividades à logística",
+          "Criação e condução de eventos e programações",
+          "Coordenação de equipe",
+          "Comunicação com crianças, famílias e liderança"
+        ]
+      },
+      {
+        "period": "jan/2023 — jun/2026",
+        "start": "2023-01",
+        "end": "2026-06",
+        "role": "Produção e organização",
+        "org": "Ministério de Música e Louvor",
+        "bullets": [
+          "Repertório, escala e cronograma",
+          "Produção de eventos musicais do conceito à execução",
+          "Articulação entre equipe, músicos e liderança",
+          "Apoio em gravações de estúdio"
+        ]
+      },
+      {
+        "period": "mar/2025 — abr/2025",
+        "start": "2025-03",
+        "end": "2025-04",
+        "role": "Roteiro, atuação e direção de arte",
+        "org": "Musical “Eis o Cordeiro” · UNASP",
+        "bullets": [
+          "Escreveu o roteiro do espetáculo",
+          "Interpretou um personagem em cena",
+          "Dirigiu figurino e concebeu os cenários",
+          "Conduziu a seleção musical"
+        ]
+      },
+      {
+        "period": "jun/2025",
+        "start": "2025-06",
+        "end": "2025-06",
+        "role": "Serviço voluntário",
+        "org": "Missão Xerente 2025 · Tocantins",
+        "bullets": [
+          "15 dias em comunidade indígena Xerente",
+          "Trabalho em equipe fora da zona de conforto",
+          "Comunicação com público de repertório muito diferente do seu"
+        ]
+      }
+    ],
+    "closing": "Planejar um acampamento para dezenas de crianças e planejar uma campanha têm mais em comum do que parece — as duas só funcionam com pauta clara, cronograma e alguém que resolve na hora."
+  },
   "lab": {
     "eyebrow": "Estudo aplicado",
     "title": "Laboratório",
@@ -160,19 +266,6 @@
       "Português nativo",
       "Inglês intermediário",
       "Espanhol básico"
-    ],
-    "outsideLabel": "Fora da sala de aula",
-    "cards": [
-      {
-        "title": "Musical “Eis o Cordeiro”",
-        "meta": "UNASP-EC · abril de 2025",
-        "body": "Escrevi o roteiro, interpretei um personagem e cuidei de figurino, cenário e seleção musical."
-      },
-      {
-        "title": "Missão Xerente 2025",
-        "meta": "Tocantins · junho de 2025",
-        "body": "15 dias de serviço voluntário em comunidade indígena Xerente."
-      }
     ],
     "closing": "As duas coisas me ensinaram o mesmo: comunicação só funciona quando você fala com o público que existe, e não com o que você imaginou."
   },

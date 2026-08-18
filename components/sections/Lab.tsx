@@ -1,12 +1,11 @@
 "use client";
 
-import { m } from "framer-motion";
+import Reveal from "@/components/ui/Reveal";
 import { useLocale, useTranslations } from "next-intl";
 import Section, { SectionHead } from "@/components/ui/Section";
 import StudioCard from "@/components/ui/StudioCard";
 import { labItems, type Lang, type LabKind } from "@/data/lab";
 
-const EASE = [0.16, 1, 0.3, 1] as const;
 
 const KIND_ACCENT: Record<LabKind, "key" | "fill" | "rim"> = {
   teardown: "rim",
@@ -46,18 +45,16 @@ export default function Lab() {
   const empty = labItems.length === 0;
 
   return (
-    <Section id="lab" depth="000" spot="rim">
+    <Section id="lab" depth="100" spot="rim">
       <SectionHead eyebrow={t("eyebrow")} title={t("title")} sub={t("sub")} />
 
       {empty ? (
         <div className="grid gap-5 md:grid-cols-3">
           {(t.raw("placeholders") as { kind: LabKind; label: string }[]).map((p, i) => (
-            <m.div
+            <Reveal
               key={p.label}
-              initial={{ opacity: 0, y: 22 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, ease: EASE, delay: i * 0.08 }}
+              y={22}
+              delay={i * 0.08}
               className="flex flex-col gap-4 rounded-[20px] border border-dashed border-[var(--line)] bg-[color-mix(in_srgb,var(--bg-200)_60%,transparent)] p-7"
             >
               <div className="flex items-center justify-between">
@@ -74,7 +71,7 @@ export default function Lab() {
                 </h3>
                 <p className="mt-2.5 text-sm leading-relaxed text-[var(--tx-md)]">{t("soon")}</p>
               </div>
-            </m.div>
+            </Reveal>
           ))}
         </div>
       ) : (
@@ -83,13 +80,7 @@ export default function Lab() {
             const accent = KIND_ACCENT[item.kind];
             const Wrapper = item.href ? "a" : "div";
             return (
-              <m.div
-                key={item.id}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.55, ease: EASE, delay: i * 0.07 }}
-              >
+              <Reveal key={item.id} y={24} delay={i * 0.07}>
                 <StudioCard spot={accent} className="h-full">
                   <Wrapper
                     {...(item.href
@@ -136,7 +127,7 @@ export default function Lab() {
                     )}
                   </Wrapper>
                 </StudioCard>
-              </m.div>
+              </Reveal>
             );
           })}
         </div>

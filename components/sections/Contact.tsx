@@ -105,7 +105,7 @@ export default function Contact() {
     "mt-1.5 font-mono text-[10px] tracking-[0.12em] text-[var(--key)] uppercase";
 
   return (
-    <Section id="contact" depth="100" spot="key">
+    <Section id="contact" depth="000" spot="key">
       <SectionHead eyebrow={t("eyebrow")} title={t("title")} sub={t("sub")} />
 
       <div className="grid items-stretch gap-5 lg:grid-cols-2">

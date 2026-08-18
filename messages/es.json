@@ -8,7 +8,54 @@
     "about": "Sobre mí",
     "contact": "Contacto",
     "pdf": "Descargar PDF",
-    "menu": "Menú"
+    "menu": "Menú",
+    "journey": "Trayectoria"
+  },
+  "boot": {
+    "skip": "Saltar",
+    "sim": "Simulación",
+    "status": [
+      "Iniciando campaña…",
+      "Definiendo público objetivo…",
+      "Asignando presupuesto…",
+      "Generando creativos…",
+      "Leyendo resultados…"
+    ],
+    "panels": {
+      "audience": "Público",
+      "budget": "Presupuesto",
+      "creatives": "Creativos",
+      "result": "Resultado"
+    },
+    "slices": [
+      "Meta Ads",
+      "Google Ads",
+      "Test"
+    ],
+    "kpis": [
+      {
+        "label": "CTR",
+        "value": 2.4,
+        "prefix": "",
+        "suffix": "%",
+        "decimals": 1
+      },
+      {
+        "label": "CPA",
+        "value": 18,
+        "prefix": "R$ ",
+        "suffix": "",
+        "decimals": 0
+      },
+      {
+        "label": "ROAS",
+        "value": 4.1,
+        "prefix": "",
+        "suffix": "x",
+        "decimals": 1
+      }
+    ],
+    "phrase": "Yo planifico la campaña, produzco el creativo y leo el resultado."
   },
   "hero": {
     "eyebrow": "Medios pagos · Performance · Creativo",
@@ -94,6 +141,65 @@
       }
     ]
   },
+  "journey": {
+    "eyebrow": "Dónde aprendí a producir",
+    "title": "Trayectoria",
+    "sub": "Tres años y medio produciendo eventos de verdad: cronograma, equipo, imprevisto y entrega en fecha.",
+    "items": [
+      {
+        "period": "ene/2023 — jun/2026",
+        "start": "2023-01",
+        "end": "2026-06",
+        "role": "Directora Asociada",
+        "org": "Club de Conquistadores",
+        "bullets": [
+          "Planificación y ejecución de campamentos, del guion de actividades a la logística",
+          "Creación y conducción de eventos y programaciones",
+          "Coordinación de equipo",
+          "Comunicación con niños, familias y liderazgo"
+        ]
+      },
+      {
+        "period": "ene/2023 — jun/2026",
+        "start": "2023-01",
+        "end": "2026-06",
+        "role": "Producción y organización",
+        "org": "Ministerio de Música y Alabanza",
+        "bullets": [
+          "Repertorio, turnos y cronograma",
+          "Producción de eventos musicales del concepto a la ejecución",
+          "Articulación entre equipo, músicos y liderazgo",
+          "Apoyo en grabaciones de estudio"
+        ]
+      },
+      {
+        "period": "mar/2025 — abr/2025",
+        "start": "2025-03",
+        "end": "2025-04",
+        "role": "Guion, actuación y dirección de arte",
+        "org": "Musical “Eis o Cordeiro” · UNASP",
+        "bullets": [
+          "Escribió el guion del espectáculo",
+          "Interpretó un personaje en escena",
+          "Dirigió vestuario y concibió la escenografía",
+          "Condujo la selección musical"
+        ]
+      },
+      {
+        "period": "jun/2025",
+        "start": "2025-06",
+        "end": "2025-06",
+        "role": "Servicio voluntario",
+        "org": "Misión Xerente 2025 · Tocantins",
+        "bullets": [
+          "15 días en comunidad indígena Xerente",
+          "Trabajo en equipo fuera de la zona de confort",
+          "Comunicación con un público de repertorio muy distinto al propio"
+        ]
+      }
+    ],
+    "closing": "Planificar un campamento para decenas de niños y planificar una campaña tienen más en común de lo que parece — las dos solo funcionan con pauta clara, cronograma y alguien que resuelve en el momento."
+  },
   "lab": {
     "eyebrow": "Estudio aplicado",
     "title": "Laboratorio",
@@ -160,19 +266,6 @@
       "Portugués nativo",
       "Inglés intermedio",
       "Español básico"
-    ],
-    "outsideLabel": "Fuera del aula",
-    "cards": [
-      {
-        "title": "Musical “Eis o Cordeiro”",
-        "meta": "UNASP-EC · abril de 2025",
-        "body": "Escribí el guion, interpreté un personaje y me encargué de vestuario, escenografía y selección musical."
-      },
-      {
-        "title": "Misión Xerente 2025",
-        "meta": "Tocantins · junio de 2025",
-        "body": "15 días de servicio voluntario en comunidad indígena Xerente."
-      }
     ],
     "closing": "Las dos cosas me enseñaron lo mismo: la comunicación solo funciona cuando hablas con el público que existe, y no con el que imaginaste."
   },

@@ -14,7 +14,7 @@ export default function StudioCard({
 }: {
   children: ReactNode;
   className?: string;
-  spot?: "key" | "fill" | "rim" | "tung";
+  spot?: "key" | "fill" | "rim" | "warm";
   as?: "div" | "article" | "li";
 }) {
   const ref = useRef<HTMLElement | null>(null);

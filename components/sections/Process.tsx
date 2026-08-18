@@ -2,10 +2,10 @@
 
 import { useRef } from "react";
 import { m, useScroll, useTransform } from "framer-motion";
+import Reveal from "@/components/ui/Reveal";
 import { useTranslations } from "next-intl";
 import Section, { SectionHead } from "@/components/ui/Section";
 
-const EASE = [0.16, 1, 0.3, 1] as const;
 const ACCENTS = ["key", "fill", "rim", "warm"] as const;
 
 type Step = { title: string; desc: string };
@@ -61,14 +61,7 @@ export default function Process() {
 
         <ol className="grid gap-9 pl-16 xl:grid-cols-4 xl:gap-6 xl:pl-0">
           {steps.map((step, i) => (
-            <m.li
-              key={step.title}
-              initial={{ opacity: 0, y: 22 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-70px" }}
-              transition={{ duration: 0.5, ease: EASE, delay: i * 0.1 }}
-              className="relative"
-            >
+            <Reveal as="li" key={step.title} y={22} delay={i * 0.1} className="relative">
               <span
                 className="absolute top-[2px] -left-16 grid h-[52px] w-[52px] place-items-center rounded-full border font-mono text-[12px] font-bold xl:static xl:mb-6"
                 style={{
@@ -87,7 +80,7 @@ export default function Process() {
               <p className="mt-2.5 max-w-[36ch] text-[15px] leading-relaxed text-[var(--tx-md)]">
                 {step.desc}
               </p>
-            </m.li>
+            </Reveal>
           ))}
         </ol>
       </div>

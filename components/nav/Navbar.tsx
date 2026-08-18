@@ -3,10 +3,23 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { AnimatePresence, m } from "framer-motion";
+import { m } from "framer-motion";
 import LanguageSwitcher from "./LanguageSwitcher";
 
-const SECTIONS = ["bridge", "deliver", "process", "lab", "stack", "about", "contact"] as const;
+const SECTIONS = [
+  "bridge",
+  "deliver",
+  "process",
+  "journey",
+  "lab",
+  "stack",
+  "about",
+  "contact",
+] as const;
+
+/** Com 8 itens a navbar encosta no seletor de idioma a 1024px.
+ *  Estes só aparecem a partir de 1280px. */
+const XL_ONLY = new Set(["journey", "lab", "stack"]);
 
 function DownloadIcon() {
   return (
@@ -69,11 +82,8 @@ export default function Navbar() {
   }, [open]);
 
   return (
-    <m.header
-      initial={{ y: -70, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed inset-x-0 top-0 z-50 border-b backdrop-blur-xl transition-all duration-400 ${
+    <header
+      className={`header-in fixed inset-x-0 top-0 z-50 border-b backdrop-blur-xl transition-all duration-400 ${
         scrolled
           ? "h-16 border-[var(--line)] bg-[rgba(5,6,10,.82)]"
           : "h-20 border-[var(--line-soft)] bg-[rgba(5,6,10,.72)]"
@@ -93,7 +103,9 @@ export default function Navbar() {
               key={key}
               href={`#${key}`}
               aria-current={active === key ? "true" : undefined}
-              className="relative rounded-full px-3 py-2 font-mono text-[10.5px] tracking-[0.14em] whitespace-nowrap uppercase transition-colors"
+              className={`relative rounded-full px-3 py-2 font-mono text-[10.5px] tracking-[0.14em] whitespace-nowrap uppercase transition-colors ${
+                XL_ONLY.has(key) ? "hidden xl:inline-block" : ""
+              }`}
             >
               {active === key && (
                 <m.span
@@ -142,26 +154,17 @@ export default function Navbar() {
       </div>
 
       {/* drawer mobile */}
-      <AnimatePresence>
+      <>
         {open && (
           <>
-            <m.button
+            <button
               type="button"
               tabIndex={-1}
               aria-hidden="true"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
               onClick={() => setOpen(false)}
-              className="fixed inset-0 top-0 -z-[1] cursor-default bg-black/60 lg:hidden"
+              className="drawer-scrim fixed inset-0 top-0 -z-[1] cursor-default bg-black/60 lg:hidden"
             />
-            <m.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed top-0 right-0 h-dvh w-[78vw] max-w-[320px] border-l border-[var(--line)] bg-[rgba(5,6,10,.94)] backdrop-blur-xl lg:hidden"
-            >
+            <div className="drawer-panel fixed top-0 right-0 h-dvh w-[78vw] max-w-[320px] border-l border-[var(--line)] bg-[rgba(5,6,10,.94)] backdrop-blur-xl lg:hidden">
               <nav className="flex flex-col gap-1 px-6 pt-24">
                 {SECTIONS.map((key) => (
                   <a
@@ -174,10 +177,10 @@ export default function Navbar() {
                   </a>
                 ))}
               </nav>
-            </m.div>
+            </div>
           </>
         )}
-      </AnimatePresence>
-    </m.header>
+      </>
+    </header>
   );
 }

@@ -1,11 +1,10 @@
 "use client";
 
-import { m } from "framer-motion";
+import Reveal from "@/components/ui/Reveal";
 import { useTranslations } from "next-intl";
 import Section, { SectionHead } from "@/components/ui/Section";
 import StudioCard from "@/components/ui/StudioCard";
 
-const EASE = [0.16, 1, 0.3, 1] as const;
 const ACCENTS = ["key", "fill", "rim"] as const;
 
 type Card = { title: string; bullets: string[] };
@@ -20,20 +19,18 @@ const ICONS = [
   "M5 8h30v27H5z M5 16h30 M12 4v8 M28 4v8 M11 23h8 M11 29h14 M23 23h6",
 ] as const;
 
-function Icon({ d, index }: { d: string; index: number }) {
+function Icon({ d }: { d: string }) {
   return (
     <svg viewBox="0 0 40 40" className="h-10 w-10" aria-hidden="true">
-      <m.path
+      <path
         d={d}
         fill="none"
         stroke="currentColor"
         strokeWidth="1.4"
         strokeLinecap="round"
         strokeLinejoin="round"
-        initial={{ pathLength: 0, opacity: 0.35 }}
-        whileInView={{ pathLength: 1, opacity: 1 }}
-        viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 0.6, ease: EASE, delay: 0.15 + index * 0.08 }}
+        pathLength={1}
+        className="icon-draw"
       />
     </svg>
   );
@@ -49,17 +46,11 @@ export default function Deliver() {
 
       <div className="grid gap-5 md:grid-cols-3">
         {cards.map((card, i) => (
-          <m.div
-            key={card.title}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.55, ease: EASE, delay: i * 0.08 }}
-          >
-            <StudioCard spot={ACCENTS[i]} className="flex h-full flex-col p-7">
+          <Reveal key={card.title} y={24} delay={i * 0.08}>
+            <StudioCard spot={ACCENTS[i]} className="group flex h-full flex-col p-7">
               <div className="flex items-start justify-between">
                 <span style={{ color: `var(--${ACCENTS[i]})` }}>
-                  <Icon d={ICONS[i]} index={i} />
+                  <Icon d={ICONS[i]} />
                 </span>
                 <span className="font-mono text-[10px] tracking-[0.2em] text-[var(--tx-lo)]">
                   {String(i + 1).padStart(2, "0")}
@@ -83,7 +74,7 @@ export default function Deliver() {
                 ))}
               </ul>
             </StudioCard>
-          </m.div>
+          </Reveal>
         ))}
       </div>
     </Section>

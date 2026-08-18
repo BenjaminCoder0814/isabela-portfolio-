@@ -6,7 +6,6 @@ import { m, useScroll, useTransform } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
 import Button from "@/components/ui/Button";
 
-const EASE = [0.16, 1, 0.3, 1] as const;
 
 const BLUR_DATA =
   "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjEwIj48cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSIxMCIgZmlsbD0iIzE0MTgyMiIvPjxjaXJjbGUgY3g9IjQiIGN5PSI0IiByPSIzIiBmaWxsPSIjMmEyMzMwIi8+PC9zdmc+";
@@ -82,29 +81,15 @@ export default function Hero() {
   const frameY = useTransform(scrollYProgress, [0, 1], [0, -90]);
   const fade = useTransform(scrollYProgress, [0, 1], [1, 0.4]);
 
-  const stagger = {
-    hidden: {},
-    show: { transition: { staggerChildren: 0.09, delayChildren: 0.1 } },
-  };
-  const item = {
-    hidden: { opacity: 0, y: 22 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
-  };
-
   const wordsA = headlineA.split(" ");
   const wordsB = headlineB.split(" ");
   const lineDelay = 0.2 + wordsA.length * 0.12;
 
   const Word = ({ word, delay }: { word: string; delay: number }) => (
     <span className="mr-[0.24em] inline-block overflow-hidden align-bottom">
-      <m.span
-        className="inline-block"
-        initial={{ clipPath: "inset(100% 0 0 0)", y: "0.14em" }}
-        animate={{ clipPath: "inset(0% 0 0 0)", y: 0 }}
-        transition={{ duration: 0.9, ease: EASE, delay }}
-      >
+      <span className="word-up" style={{ ["--d" as string]: `${delay}s` }}>
         {word}
-      </m.span>
+      </span>
     </span>
   );
 
@@ -118,19 +103,16 @@ export default function Hero() {
         {/* ── TEXTO ── */}
         <m.div
           style={{ y: textY, opacity: fade }}
-          variants={stagger}
-          initial="hidden"
-          animate="show"
           className="order-2 flex flex-col gap-6 lg:order-1 lg:col-span-7"
         >
-          <m.p variants={item} className="eyebrow items-start">
+          <p className="eyebrow rise items-start" style={{ ["--d" as string]: "0.1s" }}>
             <span
               className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--rim)] shadow-[0_0_8px_var(--rim)]"
               style={{ animation: "status-pulse 2.4s ease-in-out infinite" }}
               aria-hidden="true"
             />
             <span className="min-w-0">{t("eyebrow")}</span>
-          </m.p>
+          </p>
 
           <h1 className="t-h1">
             {wordsA.map((w, i) => (
@@ -144,31 +126,31 @@ export default function Hero() {
             </span>
           </h1>
 
-          <m.div
+          <div
             aria-hidden="true"
-            initial={{ width: 0 }}
-            animate={{ width: 180 }}
-            transition={{ duration: 0.8, ease: EASE, delay: lineDelay + wordsB.length * 0.12 }}
-            className="h-[2px]"
-            style={{ background: "linear-gradient(90deg, transparent, var(--key), transparent)" }}
+            className="light-bar h-[2px]"
+            style={{
+              background: "linear-gradient(90deg, transparent, var(--key), transparent)",
+              ["--d" as string]: `${lineDelay + wordsB.length * 0.12}s`,
+            }}
           />
 
-          <m.p variants={item} className="t-body max-w-[46ch]">
+          <p className="t-body rise max-w-[46ch]" style={{ ["--d" as string]: "0.3s" }}>
             {t("sub")}
-          </m.p>
+          </p>
 
-          <m.div variants={item} className="flex flex-wrap gap-3">
+          <div className="rise flex flex-wrap gap-3" style={{ ["--d" as string]: "0.4s" }}>
             <Button href="#deliver" variant="primary">
               {t("cta1")}
             </Button>
             <Button href={`/${locale}/pdf`} variant="outline">
               {t("cta2")}
             </Button>
-          </m.div>
+          </div>
 
-          <m.ul
-            variants={item}
-            className="mt-2 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-[var(--line-soft)] pt-5"
+          <ul
+            className="rise mt-2 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-[var(--line-soft)] pt-5"
+            style={{ ["--d" as string]: "0.5s" }}
           >
             {stats.map((s) => (
               <li
@@ -178,17 +160,12 @@ export default function Hero() {
                 {s}
               </li>
             ))}
-          </m.ul>
+          </ul>
         </m.div>
 
         {/* ── FOTO ── */}
         <m.div
           style={{ y: frameY, opacity: fade }}
-          /* sem fade a partir de 0: a foto é o elemento de LCP e não pode
-             esperar a animação para ser pintada */
-          initial={{ scale: 0.965 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 0.9, ease: EASE }}
           className="order-1 lg:order-2 lg:col-span-5"
         >
           <div
