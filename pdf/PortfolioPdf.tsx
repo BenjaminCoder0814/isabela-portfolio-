@@ -3,6 +3,7 @@ import { pdfStyles as S, C } from "./pdfStyles";
 import type { Locale } from "@/lib/utils";
 
 const EMAIL = "isam250500@gmail.com";
+const PHONE = "+55 19 98989-9317";
 const LINKEDIN = "linkedin.com/in/isabelamachadomidia";
 const LOCATION = "Engenheiro Coelho / Campinas, SP — Brasil";
 
@@ -308,6 +309,7 @@ export default function PortfolioPdf({ locale }: { locale: Locale }) {
 
         <View style={S.hudRow}>
           <Text style={S.hudText}>{EMAIL}</Text>
+          <Text style={S.hudText}>{PHONE}</Text>
           <Text style={S.hudText}>{LINKEDIN}</Text>
           <Text style={S.hudText}>{LOCATION}</Text>
         </View>
@@ -434,7 +436,7 @@ export default function PortfolioPdf({ locale }: { locale: Locale }) {
         </View>
 
         <View style={S.footer}>
-          <Text style={S.hudText}>© 2026 ISABELA MACHADO · {EMAIL}</Text>
+          <Text style={S.hudText}>© 2026 ISABELA MACHADO · {EMAIL} · {PHONE}</Text>
           <Text style={S.hudText}>2 / 2</Text>
         </View>
       </Page>

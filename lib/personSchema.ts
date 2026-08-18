@@ -78,6 +78,7 @@ export function personSchema(locale: string, siteUrl: string) {
     jobTitle: JOB_TITLE[l],
     description: DESCRIPTION[l],
     email: "mailto:isam250500@gmail.com",
+    telephone: "+55-19-98989-9317",
     url: `${siteUrl}/${l}`,
     image: `${siteUrl}/hero-photo.webp`,
     knowsAbout: KNOWS_ABOUT[l],
@@ -114,6 +115,9 @@ export function personSchema(locale: string, siteUrl: string) {
       addressRegion: "SP",
       addressCountry: "BR",
     },
-    sameAs: ["https://www.linkedin.com/in/isabelamachadomidia"],
+    sameAs: [
+      "https://www.linkedin.com/in/isabelamachadomidia",
+      "https://wa.me/5519989899317",
+    ],
   };
 }

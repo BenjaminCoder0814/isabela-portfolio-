@@ -8,7 +8,17 @@ import StudioCard from "@/components/ui/StudioCard";
 export const EMAIL = "isam250500@gmail.com";
 export const LINKEDIN = "https://linkedin.com/in/isabelamachadomidia";
 export const INSTAGRAM = "https://instagram.com/isabelamachado";
-export const WHATSAPP = "https://wa.me/5519999999999";
+
+/** wa.me exige só dígitos: país + DDD + número, sem +, espaço ou traço. */
+export const PHONE_DIGITS = "5519989899317";
+export const PHONE_DISPLAY = "+55 19 98989-9317";
+export const PHONE_E164 = "+5519989899317";
+
+/** Link de WhatsApp com a mensagem já escrita no idioma do visitante. */
+export function waLink(message?: string) {
+  const base = `https://wa.me/${PHONE_DIGITS}`;
+  return message ? `${base}?text=${encodeURIComponent(message)}` : base;
+}
 
 const ICONS = {
   email: "M2 5h20v14H2z M2 6l10 7 10-7",
@@ -45,7 +55,7 @@ export default function Contact() {
 
   const channels: { k: Channel; label: string; href: string }[] = [
     { k: "email", label: t("email"), href: `mailto:${EMAIL}` },
-    { k: "whatsapp", label: t("whatsapp"), href: WHATSAPP },
+    { k: "whatsapp", label: t("whatsapp"), href: waLink(t("whatsappMessage")) },
     { k: "linkedin", label: t("linkedin"), href: LINKEDIN },
     { k: "instagram", label: t("instagram"), href: INSTAGRAM },
   ];
@@ -146,9 +156,20 @@ export default function Contact() {
             <p className="mt-3 text-[15px] leading-relaxed text-[var(--tx-md)]">
               {t("availability")}
             </p>
-            <p className="mt-4 font-mono text-[11px] tracking-[0.12em] text-[var(--tx-lo)]">
-              {EMAIL}
-            </p>
+            <div className="mt-4 flex flex-col gap-1.5">
+              <a
+                href={`mailto:${EMAIL}`}
+                className="font-mono text-[11px] tracking-[0.12em] text-[var(--tx-lo)] transition-colors hover:text-[var(--key)]"
+              >
+                {EMAIL}
+              </a>
+              <a
+                href={`tel:${PHONE_E164}`}
+                className="font-mono text-[11px] tracking-[0.12em] text-[var(--tx-lo)] transition-colors hover:text-[var(--key)]"
+              >
+                {PHONE_DISPLAY}
+              </a>
+            </div>
           </StudioCard>
         </div>
 

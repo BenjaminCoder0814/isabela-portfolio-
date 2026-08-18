@@ -8,23 +8,28 @@ import {
   EMAIL,
   INSTAGRAM,
   LINKEDIN,
-  WHATSAPP,
+  PHONE_DISPLAY,
+  waLink,
   type Channel,
 } from "./Contact";
 
 const NAV_KEYS = ["bridge", "deliver", "process", "journey", "lab", "stack", "about", "contact"] as const;
 
-const CONTACTS: { k: Channel; label: string; href: string }[] = [
-  { k: "email", label: EMAIL, href: `mailto:${EMAIL}` },
-  { k: "linkedin", label: "LinkedIn", href: LINKEDIN },
-  { k: "instagram", label: "Instagram", href: INSTAGRAM },
-  { k: "whatsapp", label: "WhatsApp", href: WHATSAPP },
-];
+function contacts(waMessage: string): { k: Channel; label: string; href: string }[] {
+  return [
+    { k: "email", label: EMAIL, href: `mailto:${EMAIL}` },
+    { k: "whatsapp", label: PHONE_DISPLAY, href: waLink(waMessage) },
+    { k: "linkedin", label: "LinkedIn", href: LINKEDIN },
+    { k: "instagram", label: "Instagram", href: INSTAGRAM },
+  ];
+}
 
 export default function Footer() {
   const t = useTranslations("footer");
   const nav = useTranslations("nav");
+  const contact = useTranslations("contact");
   const locale = useLocale();
+  const CONTACTS = contacts(contact("whatsappMessage"));
 
   return (
     <footer
