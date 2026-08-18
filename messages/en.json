@@ -1,125 +1,222 @@
 {
   "nav": {
-    "home": "Home",
+    "bridge": "The bridge",
+    "deliver": "What I deliver",
+    "process": "Process",
+    "lab": "Lab",
+    "stack": "Stack",
     "about": "About",
-    "projects": "Projects",
-    "skills": "Skills",
     "contact": "Contact",
-    "pdf": "Download PDF"
+    "pdf": "Download PDF",
+    "menu": "Menu"
   },
   "hero": {
-    "eyebrow": "Broadcast · Content · Hosting · Editing",
-    "headline": "Studio-grade storytelling with on-screen impact.",
-    "sub": "From script to on-air: production, presence, and pacing — with creative + technical vision.",
-    "cta1": "Download PDF",
-    "cta2": "Get in touch",
-    "onAir": "ON AIR",
-    "cycling": ["Host", "Creator", "Editor", "Scriptwriter", "Communicator"]
-  },
-  "about": {
-    "label": "About",
-    "title": "Who I am",
-    "body": "I'm Isabela Machado, a Radio & TV student (1st semester), focused on content creation, communication, and audiovisual production. I love turning ideas into short, beautiful, and clear narratives — ready for audiences and brands. My vision blends studio technique with the aesthetic sensibility of someone who understands stories, reels, and the big screen."
-  },
-  "highlights": {
-    "label": "Highlights",
-    "title": "What I do",
-    "items": [
-      { "title": "Hosting", "desc": "Camera, live, interviews" },
-      { "title": "Scriptwriting", "desc": "Narrative, brief, copy" },
-      { "title": "Editing", "desc": "Premiere, DaVinci, CapCut" },
-      { "title": "Capturing", "desc": "Camera, lighting, direct sound" },
-      { "title": "Social Video", "desc": "Reels, stories, shorts" },
-      { "title": "Production", "desc": "Pre to post, start to finish" }
+    "eyebrow": "Paid media · Performance · Creative",
+    "headlineA": "I plan the campaign, produce the creative and",
+    "headlineB": "read the results.",
+    "sub": "Isabela Machado — Advertising student at UNASP (Brazil). Open to 100% remote internship and junior roles.",
+    "cta1": "See what I deliver",
+    "cta2": "Download PDF",
+    "stats": [
+      "PT · EN · ES",
+      "Google Ads & Meta Ads",
+      "Available now"
     ]
   },
-  "projects": {
-    "label": "Projects",
-    "title": "Selected work",
-    "filters": {
-      "all": "All",
-      "Hosting": "Hosting",
-      "Editing": "Editing",
-      "Script": "Script",
-      "Social": "Social",
-      "Production": "Production"
+  "bridge": {
+    "eyebrow": "Why paid media",
+    "title": "Numbers and craft, in the same person",
+    "left": {
+      "label": "Discipline with data",
+      "body": "I work in payroll and billing at a medical centre. It is a routine of double-checking, deadlines, spreadsheets and responsibility over figures that cannot be wrong."
     },
-    "role": "Role",
-    "year": "Year",
-    "watch": "Watch",
-    "view": "View project"
-  },
-  "skills": {
-    "label": "Skills & Tools",
-    "title": "Competencies",
-    "hard": [
-      "Hosting & Voice-over",
-      "Scriptwriting & Brief",
-      "Video Editing",
-      "Capturing & Photography",
-      "Content Direction",
-      "Social Media Video"
-    ],
-    "tools": [
-      "Premiere Pro",
-      "DaVinci Resolve",
-      "After Effects",
-      "CapCut",
-      "Photoshop",
-      "Canva",
-      "OBS Studio",
-      "Lightroom"
-    ]
-  },
-  "education": {
-    "label": "Education",
-    "title": "Education",
-    "degree": "Radio and Television",
-    "semester": "1st Semester",
-    "institution": "University — In progress",
-    "extras": "Extra courses & Certifications",
-    "languages": {
-      "title": "Languages",
-      "items": ["Native Portuguese", "Intermediate English", "Basic Spanish"]
+    "right": {
+      "label": "Audiovisual language",
+      "body": "I studied Radio & TV and wrote, acted in and directed costume and set for a musical. I can script, shoot, host and edit a video end to end."
+    },
+    "center": {
+      "label": "= The result",
+      "title": "Paid media and performance",
+      "body": "The professional who plans the campaign, produces the creative and reads the results — instead of depending on three different people for it."
     }
   },
-  "value": {
-    "label": "Value Proposition",
-    "title": "What I deliver for your company",
-    "sub": "From briefing to delivery: visual content with narrative, rhythm, and results.",
-    "items": [
-      { "title": "Video Campaigns", "desc": "Concept, script, capture, and editing for brands" },
-      { "title": "Short Videos & Reels", "desc": "Fast, beautiful, and magnetic content" },
-      { "title": "Behind the Scenes", "desc": "Humanizes the brand with storytelling" },
-      { "title": "Institutional Video", "desc": "Presentations that convince and enchant" },
-      { "title": "Event Coverage", "desc": "Camera, interviews, and fast delivery" },
-      { "title": "Social Media Video", "desc": "Planning, production, and consistency" }
+  "deliver": {
+    "eyebrow": "Scope",
+    "title": "What I deliver",
+    "sub": "Three fronts that stand on their own and work better together.",
+    "cards": [
+      {
+        "title": "Paid media campaigns",
+        "bullets": [
+          "Google Ads and Meta Ads",
+          "Campaign structure, audiences, budget and optimisation",
+          "Reading CTR, CPC, CPA and ROAS"
+        ]
+      },
+      {
+        "title": "Performance creative",
+        "bullets": [
+          "Script, shoot and edit for short video (Reels, Shorts, VSL)",
+          "Variations built for A/B testing",
+          "Captions and vertical formats"
+        ]
+      },
+      {
+        "title": "Content & social",
+        "bullets": [
+          "Editorial calendar",
+          "Copy and format adaptation",
+          "Consistent tone of voice"
+        ]
+      }
     ]
   },
+  "process": {
+    "eyebrow": "How I work",
+    "title": "Process",
+    "sub": "Four stages, each with a clear handover before moving on.",
+    "steps": [
+      {
+        "title": "Brief & objective",
+        "desc": "What needs to happen, for whom, on what budget and in how long."
+      },
+      {
+        "title": "Creative",
+        "desc": "Script, shoot and edit — already planning the variations that go to test."
+      },
+      {
+        "title": "Campaign live",
+        "desc": "Structure, audiences, budget and daily monitoring."
+      },
+      {
+        "title": "Read and optimise",
+        "desc": "What the numbers are saying, what to cut, what to scale."
+      }
+    ]
+  },
+  "lab": {
+    "eyebrow": "Applied study",
+    "title": "Lab",
+    "sub": "What I take apart, build and test while I grow my repertoire. Updated as it comes out of the oven.",
+    "soon": "First studies in production — coming soon.",
+    "placeholders": [
+      {
+        "kind": "teardown",
+        "label": "Ad teardown"
+      },
+      {
+        "kind": "campaign",
+        "label": "Campaign structure"
+      },
+      {
+        "kind": "creative",
+        "label": "Creative test"
+      }
+    ]
+  },
+  "stack": {
+    "eyebrow": "Tools",
+    "title": "Stack",
+    "sub": "What I use day to day, grouped by function.",
+    "groups": [
+      {
+        "name": "Media & data",
+        "tools": [
+          "Google Ads",
+          "Meta Ads Manager",
+          "Google Analytics 4",
+          "Excel / Sheets"
+        ]
+      },
+      {
+        "name": "Creation",
+        "tools": [
+          "Adobe Premiere Pro",
+          "DaVinci Resolve",
+          "CapCut",
+          "Canva",
+          "Figma"
+        ]
+      },
+      {
+        "name": "Organisation",
+        "tools": [
+          "Notion",
+          "Google Workspace"
+        ]
+      }
+    ]
+  },
+  "about": {
+    "eyebrow": "Who I am",
+    "title": "About",
+    "photoCaption": "Engenheiro Coelho · Brazil",
+    "paragraphs": [
+      "I bring together two things that rarely go together in advertising: numbers and craft.",
+      "In the morning I work in payroll and billing at a clinic. It is a routine of double-checking, deadlines, spreadsheets and responsibility over figures that cannot be wrong. That is where I learned discipline with data — and that is exactly the discipline media management demands.",
+      "The rest of my time is advertising. I study Advertising at UNASP, after a semester in Radio & TV, where I learned what much of the media team cannot do: script, shoot, host and edit a video end to end."
+    ],
+    "languages": [
+      "Native Portuguese",
+      "Intermediate English",
+      "Basic Spanish"
+    ],
+    "outsideLabel": "Outside the classroom",
+    "cards": [
+      {
+        "title": "“Eis o Cordeiro” musical",
+        "meta": "UNASP-EC · April 2025",
+        "body": "I wrote the script, played a character and handled costume, set and music selection."
+      },
+      {
+        "title": "Xerente Mission 2025",
+        "meta": "Tocantins · June 2025",
+        "body": "15 days of volunteer service in a Xerente indigenous community."
+      }
+    ],
+    "closing": "Both taught me the same thing: communication only works when you speak to the audience that exists, not the one you imagined."
+  },
   "contact": {
-    "label": "Contact",
-    "title": "Let's create something remarkable?",
-    "sub": "Open to freelance, internships, and creative projects.",
-    "whatsapp": "WhatsApp",
+    "eyebrow": "Let's talk",
+    "title": "Contact",
+    "sub": "Open to internship and junior roles. I reply fast.",
     "email": "Email",
-    "instagram": "Instagram",
+    "whatsapp": "WhatsApp",
     "linkedin": "LinkedIn",
-    "location": "São Paulo, SP — Brazil",
+    "instagram": "Instagram",
+    "availabilityLabel": "Available",
+    "availability": "Available for internship and junior roles — 100% remote, or on site in the Campinas region of Brazil.",
+    "formLabel": "Message",
     "form": {
       "name": "Your name",
       "email": "Your email",
       "message": "Your message",
-      "send": "Send message"
+      "send": "Send",
+      "sending": "Sending…",
+      "sent": "Message sent",
+      "note": "Reply within 24h",
+      "sentNote": "Thank you! I reply within 24h.",
+      "fallback": "I opened your mail app with the message ready.",
+      "errName": "Please write your name",
+      "errEmail": "Invalid email",
+      "errMessage": "Tell me a bit more (min. 10 characters)",
+      "errNetwork": "Connection failed. Try again or use the email on the left."
     }
   },
   "footer": {
-    "rights": "All rights reserved",
-    "made": "Made with focus and rhythm"
+    "tagline": "Paid media & performance",
+    "status": "Open to internship and junior roles",
+    "navLabel": "Navigation",
+    "contactLabel": "Contact",
+    "actionsLabel": "Actions"
   },
   "pdf": {
-    "title": "Resume & Portfolio",
+    "title": "Résumé",
     "preview": "Preview",
     "download": "Download PDF",
-    "select": "Select language"
+    "select": "Choose the document language",
+    "back": "Back to site",
+    "generating": "Generating…",
+    "eyebrow": "Document"
   }
 }

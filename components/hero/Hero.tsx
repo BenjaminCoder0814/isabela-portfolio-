@@ -1,322 +1,243 @@
-﻿"use client";
+"use client";
 
-import { useRef, useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useTranslations, useLocale } from "next-intl";
-import dynamic from "next/dynamic";
-import LowerThird from "@/components/LowerThird";
-import Button from "@/components/ui/Button";
-import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { m, useScroll, useTransform } from "framer-motion";
+import { useLocale, useTranslations } from "next-intl";
+import Button from "@/components/ui/Button";
 
-const CameraScene = dynamic(() => import("./CameraScene"), {
-  ssr: false,
-  loading: () => null,
-});
+const EASE = [0.16, 1, 0.3, 1] as const;
 
-const TAPE_LABELS = ["RÁDIO & TV", "1º SEM", "SP — BR", "BROADCAST"];
+const BLUR_DATA =
+  "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjEwIj48cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSIxMCIgZmlsbD0iIzE0MTgyMiIvPjxjaXJjbGUgY3g9IjQiIGN5PSI0IiByPSIzIiBmaWxsPSIjMmEyMzMwIi8+PC9zdmc+";
+
+/** Marcas de enquadramento em L */
+function CornerMarks() {
+  const pos = [
+    "left-3 top-3 border-l border-t",
+    "right-3 top-3 border-r border-t",
+    "left-3 bottom-3 border-l border-b",
+    "right-3 bottom-3 border-r border-b",
+  ];
+  return (
+    <>
+      {pos.map((p) => (
+        <span
+          key={p}
+          aria-hidden="true"
+          className={`pointer-events-none absolute h-[18px] w-[18px] border-[var(--line-strong)] ${p}`}
+        />
+      ))}
+    </>
+  );
+}
+
+/** Fallback quando a imagem falha — nunca alt-text cru na tela. */
+function PhotoFallback() {
+  return (
+    <div
+      className="absolute inset-0 grid place-items-center"
+      style={{ background: "linear-gradient(140deg, var(--key), var(--fill))" }}
+      role="img"
+      aria-label="Isabela Machado"
+    >
+      <span className="font-display text-[22vmin] leading-none text-white/90 lg:text-[9rem]">
+        IM
+      </span>
+    </div>
+  );
+}
 
 export default function Hero() {
   const t = useTranslations("hero");
   const locale = useLocale();
-  const mouse = useRef<[number, number]>([0, 0]);
-  const cycling: string[] = t.raw("cycling") as string[];
-  const [cycleIndex, setCycleIndex] = useState(0);
-  const [tapeIndex, setTapeIndex] = useState(0);
-  const [lowerVisible, setLowerVisible] = useState(false);
 
-  // Mouse / gyro
+  const headlineA = t("headlineA");
+  const headlineB = t("headlineB");
+  const stats = t.raw("stats") as string[];
+
+  const [imgError, setImgError] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const frameRef = useRef<HTMLDivElement>(null);
+
+  /* reflexo diagonal do vidro seguindo o mouse */
   useEffect(() => {
-    const onMM = (e: MouseEvent) => {
-      mouse.current = [
-        (e.clientX / window.innerWidth) * 2 - 1,
-        -((e.clientY / window.innerHeight) * 2 - 1),
-      ];
+    const el = frameRef.current;
+    if (!el) return;
+    if (window.matchMedia("(max-width: 1023px)").matches) return;
+    const onMove = (e: MouseEvent) => {
+      const r = el.getBoundingClientRect();
+      el.style.setProperty("--gx", `${((e.clientX - r.left) / r.width) * 100}%`);
+      el.style.setProperty("--gy", `${((e.clientY - r.top) / r.height) * 100}%`);
     };
-    const onDO = (e: DeviceOrientationEvent) => {
-      mouse.current = [
-        ((e.gamma ?? 0) / 45) * 0.5,
-        ((e.beta ?? 0) / 90) * 0.5,
-      ];
-    };
-    window.addEventListener("mousemove", onMM, { passive: true });
-    window.addEventListener("deviceorientation", onDO, { passive: true });
-    return () => {
-      window.removeEventListener("mousemove", onMM);
-      window.removeEventListener("deviceorientation", onDO);
-    };
+    window.addEventListener("mousemove", onMove, { passive: true });
+    return () => window.removeEventListener("mousemove", onMove);
   }, []);
 
-  // Word cycle
-  useEffect(() => {
-    const id = setInterval(() => setCycleIndex((p) => (p + 1) % cycling.length), 2200);
-    return () => clearInterval(id);
-  }, [cycling.length]);
-
-  // Tape label cycle
-  useEffect(() => {
-    const id = setInterval(() => setTapeIndex((p) => (p + 1) % TAPE_LABELS.length), 1800);
-    return () => clearInterval(id);
-  }, []);
-
-  // Lower third appears after entrance
-  useEffect(() => {
-    const t = setTimeout(() => setLowerVisible(true), 1400);
-    return () => clearTimeout(t);
-  }, []);
-
-  const ease4: [number, number, number, number] = [0.16, 1, 0.3, 1];
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const textY = useTransform(scrollYProgress, [0, 1], [0, -40]);
+  const frameY = useTransform(scrollYProgress, [0, 1], [0, -90]);
+  const fade = useTransform(scrollYProgress, [0, 1], [1, 0.4]);
 
   const stagger = {
     hidden: {},
-    show: { transition: { staggerChildren: 0.1, delayChildren: 0.3 } },
+    show: { transition: { staggerChildren: 0.09, delayChildren: 0.1 } },
   };
-  const fade = {
-    hidden: { opacity: 0, y: 28 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: ease4 } },
+  const item = {
+    hidden: { opacity: 0, y: 22 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
   };
+
+  const wordsA = headlineA.split(" ");
+  const wordsB = headlineB.split(" ");
+  const lineDelay = 0.2 + wordsA.length * 0.12;
+
+  const Word = ({ word, delay }: { word: string; delay: number }) => (
+    <span className="mr-[0.24em] inline-block overflow-hidden align-bottom">
+      <m.span
+        className="inline-block"
+        initial={{ clipPath: "inset(100% 0 0 0)", y: "0.14em" }}
+        animate={{ clipPath: "inset(0% 0 0 0)", y: 0 }}
+        transition={{ duration: 0.9, ease: EASE, delay }}
+      >
+        {word}
+      </m.span>
+    </span>
+  );
 
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center overflow-hidden"
-      style={{ background: "var(--bg)" }}
+      ref={sectionRef}
+      className="relative flex min-h-[720px] items-center overflow-hidden lg:min-h-[720px]"
     >
-      {/* 3D scene */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <CameraScene mouse={mouse} />
-      </div>
-
-      {/* Radial vignette — keeps text readable */}
-      <div
-        className="absolute inset-0 z-[1] pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 85% 70% at 32% 50%, rgba(21,25,40,0.05) 0%, rgba(11,13,18,0.78) 60%, rgba(11,13,18,0.95) 100%)",
-        }}
-      />
-
-      {/* Content grid */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-28 pb-20 grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-14 items-center">
-        {/* ── LEFT ── */}
-        <motion.div
+      <div className="shell relative z-[1] grid grid-cols-1 items-center gap-12 pt-28 pb-20 lg:grid-cols-12 lg:gap-16 lg:pt-20 lg:pb-12">
+        {/* ── TEXTO ── */}
+        <m.div
+          style={{ y: textY, opacity: fade }}
           variants={stagger}
           initial="hidden"
           animate="show"
-          className="flex flex-col gap-6 max-w-xl"
+          className="order-2 flex flex-col gap-6 lg:order-1 lg:col-span-7"
         >
-          {/* Eyebrow tag */}
-          <motion.div variants={fade}>
-            <span className="label-tag">{t("eyebrow")}</span>
-          </motion.div>
+          <m.p variants={item} className="eyebrow items-start">
+            <span
+              className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--rim)] shadow-[0_0_8px_var(--rim)]"
+              style={{ animation: "status-pulse 2.4s ease-in-out infinite" }}
+              aria-hidden="true"
+            />
+            <span className="min-w-0">{t("eyebrow")}</span>
+          </m.p>
 
-          {/* Kinetic headline — word blocks slide in */}
-          <motion.h1
-            variants={fade}
-            className="font-black leading-[1.05] tracking-tight"
-            style={{ fontSize: "clamp(2.4rem,6vw,4rem)", color: "var(--text)" }}
-          >
-            {t("headline")
-              .split(" ")
-              .map((word, i) => (
-                <motion.span
-                  key={i}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.55, delay: 0.35 + i * 0.07, ease: ease4 }}
-                  className="inline-block mr-[0.25em]"
-                >
-                  {word}
-                </motion.span>
+          <h1 className="t-h1">
+            {wordsA.map((w, i) => (
+              <Word key={`a-${i}`} word={w} delay={0.2 + i * 0.12} />
+            ))}
+            {/* o gradiente cobre a frase inteira, não cada palavra */}
+            <span className="text-gradient block w-fit">
+              {wordsB.map((w, i) => (
+                <Word key={`b-${i}`} word={w} delay={lineDelay + i * 0.12} />
               ))}
-          </motion.h1>
+            </span>
+          </h1>
 
-          {/* Word rotation */}
-          <motion.div variants={fade} className="flex items-center gap-3 h-9 overflow-hidden">
-            <div
-              className="w-[3px] h-6 rounded-full flex-shrink-0"
-              style={{ background: "var(--accent1)" }}
-            />
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={cycleIndex}
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -20, opacity: 0 }}
-                transition={{ duration: 0.3, ease: ease4 }}
-                className="text-xl font-bold"
-                style={{ color: "var(--accent1)" }}
-              >
-                {cycling[cycleIndex]}
-              </motion.span>
-            </AnimatePresence>
-          </motion.div>
-
-          {/* Sub */}
-          <motion.p
-            variants={fade}
-            className="text-base leading-relaxed max-w-md"
-            style={{ color: "var(--muted)" }}
-          >
-            {t("sub")}
-          </motion.p>
-
-          {/* CTAs */}
-          <motion.div variants={fade} className="flex flex-wrap gap-3">
-            <Link href={`/${locale}/pdf`}>
-              <Button variant="primary">{t("cta1")}</Button>
-            </Link>
-            <Button variant="outline" href="#contact">
-              {t("cta2")}
-            </Button>
-          </motion.div>
-
-          {/* Lower third */}
-          <motion.div variants={fade}>
-            <LowerThird
-              name="Isabela Machado"
-              role="Comunicação · Audiovisual · Rádio &amp; TV"
-              visible={lowerVisible}
-              delay={0}
-            />
-          </motion.div>
-        </motion.div>
-
-        {/* ── RIGHT — Photo frame ── */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9, rotate: 1.5 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ delay: 0.5, duration: 1, ease: ease4 }}
-          className="relative flex justify-center lg:justify-end"
-        >
-          {/* Glow halo */}
-          <div
-            className="absolute inset-0 rounded-2xl scale-110 blur-3xl opacity-25"
-            style={{
-              background:
-                "radial-gradient(ellipse at center, #2D6BFF 0%, #FF2D92 60%, transparent 100%)",
-            }}
+          <m.div
+            aria-hidden="true"
+            initial={{ width: 0 }}
+            animate={{ width: 180 }}
+            transition={{ duration: 0.8, ease: EASE, delay: lineDelay + wordsB.length * 0.12 }}
+            className="h-[2px]"
+            style={{ background: "linear-gradient(90deg, transparent, var(--key), transparent)" }}
           />
 
-          {/* Glass frame */}
-          <div className="relative glass rounded-2xl p-[10px] shadow-2xl border border-white/12">
-            {/* Photo area */}
-            <div className="relative w-[270px] sm:w-[310px] h-[360px] sm:h-[400px] rounded-xl overflow-hidden bg-[var(--bg-2)]">
-              {/* Photo */}
-              <Image
-                src="/images/isabela.jpg"
-                alt="Isabela Machado"
-                fill
-                priority
-                className="object-cover"
-              />
+          <m.p variants={item} className="t-body max-w-[46ch]">
+            {t("sub")}
+          </m.p>
 
-              {/* Scanlines on photo */}
+          <m.div variants={item} className="flex flex-wrap gap-3">
+            <Button href="#deliver" variant="primary">
+              {t("cta1")}
+            </Button>
+            <Button href={`/${locale}/pdf`} variant="outline">
+              {t("cta2")}
+            </Button>
+          </m.div>
+
+          <m.ul
+            variants={item}
+            className="mt-2 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-[var(--line-soft)] pt-5"
+          >
+            {stats.map((s) => (
+              <li
+                key={s}
+                className="font-mono text-[10.5px] tracking-[0.16em] text-[var(--tx-lo)] uppercase"
+              >
+                {s}
+              </li>
+            ))}
+          </m.ul>
+        </m.div>
+
+        {/* ── FOTO ── */}
+        <m.div
+          style={{ y: frameY, opacity: fade }}
+          /* sem fade a partir de 0: a foto é o elemento de LCP e não pode
+             esperar a animação para ser pintada */
+          initial={{ scale: 0.965 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.9, ease: EASE }}
+          className="order-1 lg:order-2 lg:col-span-5"
+        >
+          <div
+            ref={frameRef}
+            className="relative mx-auto w-full max-w-[420px] overflow-hidden rounded-[22px] border border-[var(--line-strong)] bg-[var(--bg-200)] shadow-[inset_0_1px_0_rgba(255,255,255,.07),0_40px_90px_-40px_#000]"
+          >
+            <div className="relative aspect-4/5 w-full overflow-hidden">
+              {!imgError ? (
+                <Image
+                  src="/hero-photo.webp"
+                  alt="Isabela Machado"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 90vw, 420px"
+                  placeholder="blur"
+                  blurDataURL={BLUR_DATA}
+                  onError={() => setImgError(true)}
+                  className="object-cover"
+                  style={{ filter: "saturate(1.05) contrast(1.06)" }}
+                />
+              ) : (
+                <PhotoFallback />
+              )}
+
+              {/* vinheta interna — casa a foto com o fundo escuro */}
               <div
-                className="absolute inset-0 pointer-events-none opacity-20"
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0"
                 style={{
-                  backgroundImage:
-                    "repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.06) 3px,rgba(0,0,0,0.06) 4px)",
+                  background:
+                    "radial-gradient(ellipse 78% 65% at 50% 42%, transparent 40%, rgba(5,6,10,.5) 100%), linear-gradient(180deg, rgba(5,6,10,.2) 0%, transparent 24%, transparent 64%, rgba(5,6,10,.62) 100%)",
                 }}
               />
 
-              {/* Placeholder label */}
-              <div className="absolute inset-0 flex items-end justify-center pb-8">
-                <div className="text-center">
-                  <p className="font-mono text-[11px] tracking-widest text-[var(--muted)]">isabela.jpg</p>
-                </div>
-              </div>
-
-              {/* LIVE badge on photo */}
-              <div className="absolute top-3 right-3">
-                <motion.div
-                  animate={{ opacity: [1, 0.3, 1] }}
-                  transition={{ repeat: Infinity, duration: 1.3 }}
-                  className="flex items-center gap-1.5 px-2 py-1 rounded"
-                  style={{ background: "rgba(255,45,146,0.9)", backdropFilter: "blur(4px)" }}
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-white" />
-                  <span className="font-mono text-[8px] font-bold text-white tracking-[0.2em]">
-                    LIVE
-                  </span>
-                </motion.div>
-              </div>
-
-              {/* Corner marks on photo */}
-              {["top-2 left-2","top-2 right-2","bottom-2 left-2","bottom-2 right-2"].map((p, i) => (
-                <div key={i} className={`absolute ${p} w-3 h-3 opacity-40`}>
-                  <svg viewBox="0 0 12 12" fill="none">
-                    {i===0 && <path d="M0 5V0h5" stroke="#2D6BFF" strokeWidth="1.2"/>}
-                    {i===1 && <path d="M12 5V0H7" stroke="#2D6BFF" strokeWidth="1.2"/>}
-                    {i===2 && <path d="M0 7v5h5" stroke="#2D6BFF" strokeWidth="1.2"/>}
-                    {i===3 && <path d="M12 7v5H7" stroke="#2D6BFF" strokeWidth="1.2"/>}
-                  </svg>
-                </div>
-              ))}
+              <CornerMarks />
             </div>
 
-            {/* Frame footer */}
-            <div className="mt-2 px-1 flex items-center justify-between">
-              <span className="font-mono text-[9px] tracking-widest uppercase" style={{ color: "var(--muted)" }}>
-                Isabela Machado
-              </span>
-              {/* Tape label cycling */}
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={tapeIndex}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.25 }}
-                  className="font-mono text-[8px] font-bold tracking-[0.15em] px-2 py-0.5 rounded"
-                  style={{
-                    background: "var(--accent1)",
-                    color: "#fff",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  {TAPE_LABELS[tapeIndex]}
-                </motion.span>
-              </AnimatePresence>
-            </div>
+            {/* reflexo diagonal do vidro */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 rounded-[22px]"
+              style={{
+                background:
+                  "linear-gradient(105deg, rgba(255,255,255,.06) 0%, rgba(255,255,255,0) 42%), radial-gradient(240px circle at var(--gx,60%) var(--gy,25%), rgba(255,255,255,.05), transparent 70%)",
+              }}
+            />
           </div>
-
-          {/* Floating info card */}
-          <motion.div
-            animate={{ y: [0, -7, 0] }}
-            transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut" }}
-            className="absolute -bottom-5 -left-8 glass rounded-xl px-4 py-3 shadow-xl border border-white/40 hidden sm:block"
-          >
-            <p className="font-mono text-[9px] font-bold tracking-[0.2em] uppercase" style={{ color: "var(--accent1)" }}>
-              Rádio &amp; TV
-            </p>
-            <p className="font-bold text-sm" style={{ color: "var(--text)" }}>1º Semestre</p>
-            <p className="font-mono text-[9px]" style={{ color: "var(--muted)" }}>São Paulo, BR</p>
-          </motion.div>
-        </motion.div>
+        </m.div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2.2 }}
-        className="absolute bottom-7 left-1/2 -translate-x-1/2 z-10"
-      >
-        <motion.div
-          animate={{ y: [0, 7, 0] }}
-          transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-1"
-        >
-          <svg width="16" height="24" viewBox="0 0 16 24" fill="none">
-            <rect x="1" y="1" width="14" height="22" rx="7" stroke="currentColor" strokeWidth="1.5" style={{ color: "var(--muted)" }} />
-            <rect x="6.5" y="5" width="3" height="6" rx="1.5" fill="currentColor" style={{ color: "var(--accent1)" }} />
-          </svg>
-          <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: "var(--muted)" }}>
-            scroll
-          </span>
-        </motion.div>
-      </motion.div>
     </section>
   );
 }

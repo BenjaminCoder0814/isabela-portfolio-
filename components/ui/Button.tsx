@@ -1,70 +1,80 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
-import { ReactNode } from "react";
+import Link from "next/link";
+import type { ReactNode } from "react";
 
-interface ButtonProps {
-  children: ReactNode;
-  variant?: "primary" | "outline" | "ghost";
-  href?: string;
-  onClick?: () => void;
-  className?: string;
-  external?: boolean;
+type Variant = "primary" | "outline" | "ghost";
+
+const BASE =
+  "group relative inline-flex items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-full px-5 py-3 font-mono text-[11px] font-bold uppercase tracking-[0.16em] transition-all duration-300";
+
+const VARIANTS: Record<Variant, string> = {
+  primary:
+    "bg-[var(--key-deep)] text-[#ffffff] shadow-[0_18px_40px_-22px_var(--key)] hover:-translate-y-0.5",
+  outline:
+    "border border-[var(--line-strong)] text-[var(--tx-hi)] hover:border-[var(--key)] hover:bg-[var(--glass)] hover:-translate-y-0.5",
+  ghost: "text-[var(--tx-md)] hover:text-[var(--tx-hi)]",
+};
+
+function Sheen() {
+  return (
+    <span
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-y-0 -left-full w-1/2 bg-linear-to-r from-transparent via-white/35 to-transparent opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-hover:[animation:sheen_.75s_ease-out]"
+    />
+  );
 }
 
 export default function Button({
   children,
-  variant = "primary",
   href,
   onClick,
-  className,
+  variant = "primary",
+  type = "button",
   external,
-}: ButtonProps) {
-  const base =
-    "inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold tracking-wide rounded transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent1)]";
-  const variants = {
-    primary: "bg-[var(--accent1)] text-white hover:bg-blue-700 shadow-md shadow-blue-500/20",
-    outline: "border-2 border-[var(--text)] text-[var(--text)] hover:bg-[var(--text)] hover:text-white",
-    ghost: "text-[var(--accent1)] hover:bg-[var(--accent1)]/10",
-  };
-
-  const content = (
-    <motion.span
-      className={cn(base, variants[variant], className)}
-      whileHover={{ y: -1 }}
-      whileTap={{ scale: 0.97 }}
-    >
-      {children}
-      <svg
-        width="14"
-        height="14"
-        viewBox="0 0 14 14"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="transition-transform group-hover:translate-x-0.5"
-      >
-        <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    </motion.span>
+  className = "",
+  ariaLabel,
+}: {
+  children: ReactNode;
+  href?: string;
+  onClick?: () => void;
+  variant?: Variant;
+  type?: "button" | "submit";
+  external?: boolean;
+  className?: string;
+  ariaLabel?: string;
+}) {
+  const cls = `${BASE} ${VARIANTS[variant]} ${className}`;
+  const inner = (
+    <>
+      {variant === "primary" && <Sheen />}
+      <span className="relative z-[1] inline-flex items-center gap-2">{children}</span>
+    </>
   );
 
   if (href) {
+    if (external || href.startsWith("http") || href.startsWith("mailto:") || href.startsWith("#")) {
+      return (
+        <a
+          href={href}
+          aria-label={ariaLabel}
+          className={cls}
+          {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        >
+          {inner}
+        </a>
+      );
+    }
     return (
-      <a
-        href={href}
-        target={external ? "_blank" : undefined}
-        rel={external ? "noopener noreferrer" : undefined}
-        className="group"
-      >
-        {content}
-      </a>
+      <Link href={href} aria-label={ariaLabel} className={cls}>
+        {inner}
+      </Link>
     );
   }
 
   return (
-    <button onClick={onClick} className="group">
-      {content}
+    <button type={type} onClick={onClick} aria-label={ariaLabel} className={cls}>
+      {inner}
     </button>
   );
 }

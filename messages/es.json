@@ -1,125 +1,222 @@
 {
   "nav": {
-    "home": "Inicio",
+    "bridge": "El puente",
+    "deliver": "Qué entrego",
+    "process": "Proceso",
+    "lab": "Laboratorio",
+    "stack": "Stack",
     "about": "Sobre mí",
-    "projects": "Proyectos",
-    "skills": "Skills",
     "contact": "Contacto",
-    "pdf": "Descargar PDF"
+    "pdf": "Descargar PDF",
+    "menu": "Menú"
   },
   "hero": {
-    "eyebrow": "Radio y TV · Contenido · Presentación · Edición",
-    "headline": "Narrativas con estética de estudio e impacto en pantalla.",
-    "sub": "Del guion al 'on air': producción, presencia y ritmo — con visión creativa y técnica.",
-    "cta1": "Descargar PDF",
-    "cta2": "Contacto",
-    "onAir": "EN VIVO",
-    "cycling": ["Presentadora", "Creadora", "Editora", "Guionista", "Comunicadora"]
-  },
-  "about": {
-    "label": "Sobre mí",
-    "title": "Quién soy",
-    "body": "Soy Isabela Machado, estudiante de Radio y TV (1º semestre), con experiencia en creación de contenido, comunicación y producción audiovisual. Me gusta transformar ideas en narrativas cortas, bellas y claras — listas para público y marca. Mi visión combina técnica de estudio con sensibilidad estética de quien entiende stories, reels y la pantalla grande."
-  },
-  "highlights": {
-    "label": "Destacados",
-    "title": "Lo que hago",
-    "items": [
-      { "title": "Presentación", "desc": "Cámara, en vivo, entrevistas" },
-      { "title": "Guion", "desc": "Narrativa, pauta, texto" },
-      { "title": "Edición", "desc": "Premiere, DaVinci, CapCut" },
-      { "title": "Captación", "desc": "Cámara, luz, sonido directo" },
-      { "title": "Social Video", "desc": "Reels, stories, shorts" },
-      { "title": "Producción", "desc": "De pre a post, de inicio a fin" }
+    "eyebrow": "Medios pagos · Performance · Creativo",
+    "headlineA": "Yo planifico la campaña, produzco el creativo y",
+    "headlineB": "leo el resultado.",
+    "sub": "Isabela Machado — Estudiante de Publicidad en UNASP (Brasil). Abierta a prácticas y roles júnior 100% remotos.",
+    "cta1": "Ver qué entrego",
+    "cta2": "Descargar PDF",
+    "stats": [
+      "PT · EN · ES",
+      "Google Ads & Meta Ads",
+      "Disponible ahora"
     ]
   },
-  "projects": {
-    "label": "Proyectos",
-    "title": "Trabajos seleccionados",
-    "filters": {
-      "all": "Todos",
-      "Hosting": "Presentación",
-      "Editing": "Edición",
-      "Script": "Guion",
-      "Social": "Social",
-      "Production": "Producción"
+  "bridge": {
+    "eyebrow": "Por qué medios pagos",
+    "title": "Número y creación, en la misma persona",
+    "left": {
+      "label": "Disciplina con dato",
+      "body": "Trabajo en departamento personal y facturación en un centro médico. Es rutina de verificación, plazos, planillas y responsabilidad sobre cifras que no pueden estar mal."
     },
-    "role": "Función",
-    "year": "Año",
-    "watch": "Ver",
-    "view": "Ver proyecto"
-  },
-  "skills": {
-    "label": "Skills & Tools",
-    "title": "Competencias",
-    "hard": [
-      "Presentación & Locución",
-      "Guion & Pauta",
-      "Edición de Video",
-      "Captación & Fotografía",
-      "Dirección de Contenido",
-      "Social Media Video"
-    ],
-    "tools": [
-      "Premiere Pro",
-      "DaVinci Resolve",
-      "After Effects",
-      "CapCut",
-      "Photoshop",
-      "Canva",
-      "OBS Studio",
-      "Lightroom"
-    ]
-  },
-  "education": {
-    "label": "Formación",
-    "title": "Educación",
-    "degree": "Radio y Televisión",
-    "semester": "1er Semestre",
-    "institution": "Universidad — En progreso",
-    "extras": "Cursos extra y Certificaciones",
-    "languages": {
-      "title": "Idiomas",
-      "items": ["Portugués Nativo", "Inglés Intermediario", "Español Básico"]
+    "right": {
+      "label": "Lenguaje audiovisual",
+      "body": "Cursé Radio y TV y escribí, actué y dirigí vestuario y escenografía en un musical. Sé guionizar, grabar, conducir y editar un video de principio a fin."
+    },
+    "center": {
+      "label": "= El resultado",
+      "title": "Medios pagos y performance",
+      "body": "La profesional que planifica la campaña, produce el creativo y lee el resultado — en vez de depender de tres personas distintas para eso."
     }
   },
-  "value": {
-    "label": "Propuesta de Valor",
-    "title": "Lo que entrego a tu empresa",
-    "sub": "Del briefing a la entrega: contenido visual con narrativa, ritmo y resultado.",
-    "items": [
-      { "title": "Campañas en Video", "desc": "Concepto, guion, captación y edición para marcas" },
-      { "title": "Videos Cortos & Reels", "desc": "Contenido rápido, hermoso y magnético" },
-      { "title": "Detrás de Cámaras", "desc": "Humaniza la marca con storytelling" },
-      { "title": "Video Institucional", "desc": "Presentaciones que convencen y enamoran" },
-      { "title": "Cobertura de Eventos", "desc": "Cámara, entrevistas y entrega rápida" },
-      { "title": "Social Media Video", "desc": "Planificación, producción y consistencia" }
+  "deliver": {
+    "eyebrow": "Alcance",
+    "title": "Qué entrego",
+    "sub": "Tres frentes que se sostienen solos y funcionan mejor juntos.",
+    "cards": [
+      {
+        "title": "Campañas de medios pagos",
+        "bullets": [
+          "Google Ads y Meta Ads",
+          "Estructura de campaña, públicos, presupuesto y optimización",
+          "Lectura de CTR, CPC, CPA y ROAS"
+        ]
+      },
+      {
+        "title": "Creativo de performance",
+        "bullets": [
+          "Guion, grabación y edición de video corto (Reels, Shorts, VSL)",
+          "Variaciones para test A/B",
+          "Subtítulos y formatos verticales"
+        ]
+      },
+      {
+        "title": "Contenido & social",
+        "bullets": [
+          "Calendario editorial",
+          "Copy y adaptación de formatos",
+          "Consistencia de tono de voz"
+        ]
+      }
     ]
   },
+  "process": {
+    "eyebrow": "Cómo trabajo",
+    "title": "Proceso",
+    "sub": "Cuatro etapas, con entrega clara antes de avanzar a la siguiente.",
+    "steps": [
+      {
+        "title": "Brief y objetivo",
+        "desc": "Qué tiene que pasar, para quién, con qué presupuesto y en cuánto tiempo."
+      },
+      {
+        "title": "Creativo",
+        "desc": "Guion, grabación y edición — ya pensando en las variaciones que van a test."
+      },
+      {
+        "title": "Campaña al aire",
+        "desc": "Estructura, públicos, presupuesto y seguimiento diario."
+      },
+      {
+        "title": "Lectura y optimización",
+        "desc": "Qué dice el número, qué se corta, qué se escala."
+      }
+    ]
+  },
+  "lab": {
+    "eyebrow": "Estudio aplicado",
+    "title": "Laboratorio",
+    "sub": "Lo que desarmo, armo y pruebo mientras construyo repertorio. Se actualiza a medida que sale.",
+    "soon": "Primeros estudios en producción — muy pronto.",
+    "placeholders": [
+      {
+        "kind": "teardown",
+        "label": "Teardown de anuncio"
+      },
+      {
+        "kind": "campaign",
+        "label": "Estructura de campaña"
+      },
+      {
+        "kind": "creative",
+        "label": "Test de creativo"
+      }
+    ]
+  },
+  "stack": {
+    "eyebrow": "Herramientas",
+    "title": "Stack",
+    "sub": "Lo que uso en el día a día, agrupado por función.",
+    "groups": [
+      {
+        "name": "Medios & datos",
+        "tools": [
+          "Google Ads",
+          "Meta Ads Manager",
+          "Google Analytics 4",
+          "Excel / Sheets"
+        ]
+      },
+      {
+        "name": "Creación",
+        "tools": [
+          "Adobe Premiere Pro",
+          "DaVinci Resolve",
+          "CapCut",
+          "Canva",
+          "Figma"
+        ]
+      },
+      {
+        "name": "Organización",
+        "tools": [
+          "Notion",
+          "Google Workspace"
+        ]
+      }
+    ]
+  },
+  "about": {
+    "eyebrow": "Quién soy",
+    "title": "Sobre mí",
+    "photoCaption": "Engenheiro Coelho · Brasil",
+    "paragraphs": [
+      "Junto dos cosas que rara vez van juntas en publicidad: número y creación.",
+      "Por la mañana trabajo en departamento personal y facturación en una clínica. Es rutina de verificación, plazos, planillas y responsabilidad sobre cifras que no pueden estar mal. Ahí aprendí disciplina con dato — y es exactamente esa disciplina que exige la gestión de medios.",
+      "El resto de mi tiempo es publicidad. Curso Publicidad en UNASP, después de un semestre en Radio y TV, donde aprendí lo que buena parte del equipo de medios no sabe hacer: guionizar, grabar, conducir y editar un video de principio a fin."
+    ],
+    "languages": [
+      "Portugués nativo",
+      "Inglés intermedio",
+      "Español básico"
+    ],
+    "outsideLabel": "Fuera del aula",
+    "cards": [
+      {
+        "title": "Musical “Eis o Cordeiro”",
+        "meta": "UNASP-EC · abril de 2025",
+        "body": "Escribí el guion, interpreté un personaje y me encargué de vestuario, escenografía y selección musical."
+      },
+      {
+        "title": "Misión Xerente 2025",
+        "meta": "Tocantins · junio de 2025",
+        "body": "15 días de servicio voluntario en comunidad indígena Xerente."
+      }
+    ],
+    "closing": "Las dos cosas me enseñaron lo mismo: la comunicación solo funciona cuando hablas con el público que existe, y no con el que imaginaste."
+  },
   "contact": {
-    "label": "Contacto",
-    "title": "¿Creamos algo extraordinario?",
-    "sub": "Abierta a freelance, pasantías y proyectos creativos.",
-    "whatsapp": "WhatsApp",
+    "eyebrow": "Hablemos",
+    "title": "Contacto",
+    "sub": "Abierta a prácticas y roles júnior. Respondo rápido.",
     "email": "Correo",
-    "instagram": "Instagram",
+    "whatsapp": "WhatsApp",
     "linkedin": "LinkedIn",
-    "location": "São Paulo, SP — Brasil",
+    "instagram": "Instagram",
+    "availabilityLabel": "Disponible",
+    "availability": "Disponible para prácticas y roles júnior — 100% remoto o presencial en la región de Campinas, Brasil.",
+    "formLabel": "Mensaje",
     "form": {
       "name": "Tu nombre",
       "email": "Tu correo",
       "message": "Tu mensaje",
-      "send": "Enviar mensaje"
+      "send": "Enviar",
+      "sending": "Enviando…",
+      "sent": "Mensaje enviado",
+      "note": "Respuesta en hasta 24h",
+      "sentNote": "¡Gracias! Respondo en hasta 24h.",
+      "fallback": "Abrí tu app de correo con el mensaje listo.",
+      "errName": "Escribe tu nombre",
+      "errEmail": "Correo inválido",
+      "errMessage": "Cuéntame un poco más (mín. 10 caracteres)",
+      "errNetwork": "Fallo de conexión. Inténtalo de nuevo o usa el correo de al lado."
     }
   },
   "footer": {
-    "rights": "Todos los derechos reservados",
-    "made": "Hecho con enfoque y ritmo"
+    "tagline": "Medios pagos & performance",
+    "status": "Disponible para prácticas y júnior",
+    "navLabel": "Navegación",
+    "contactLabel": "Contacto",
+    "actionsLabel": "Acciones"
   },
   "pdf": {
-    "title": "Currículum & Portafolio",
+    "title": "Currículum",
     "preview": "Vista previa",
     "download": "Descargar PDF",
-    "select": "Seleccionar idioma"
+    "select": "Elige el idioma del documento",
+    "back": "Volver al sitio",
+    "generating": "Generando…",
+    "eyebrow": "Documento"
   }
 }

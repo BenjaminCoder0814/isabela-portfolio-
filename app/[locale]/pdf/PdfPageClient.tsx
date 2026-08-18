@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
-import { useTranslations, useLocale } from "next-intl";
-import { useRouter, usePathname } from "next/navigation";
-import { motion } from "framer-motion";
+import { useLocale, useTranslations } from "next-intl";
+import { usePathname, useRouter } from "next/navigation";
 import PortfolioPdf from "@/pdf/PortfolioPdf";
 import type { Locale } from "@/lib/utils";
 
-const locales: Array<{ code: Locale; label: string }> = [
+const LOCALES: { code: Locale; label: string }[] = [
   { code: "pt", label: "Português" },
   { code: "en", label: "English" },
   { code: "es", label: "Español" },
@@ -17,100 +17,80 @@ const locales: Array<{ code: Locale; label: string }> = [
 export default function PdfPageClient() {
   const t = useTranslations("pdf");
   const currentLocale = useLocale() as Locale;
-  const [selectedLocale, setSelectedLocale] = useState<Locale>(currentLocale);
   const router = useRouter();
   const pathname = usePathname();
   const [showPreview, setShowPreview] = useState(false);
 
-  function switchLocale(newLocale: Locale) {
-    setSelectedLocale(newLocale);
+  const switchLocale = (next: Locale) => {
     const segments = pathname.split("/");
-    segments[1] = newLocale;
+    segments[1] = next;
     router.push(segments.join("/"));
-  }
+  };
+
+  const fileName = `isabela-machado-portfolio-${currentLocale}.pdf`;
 
   return (
-    <div className="min-h-screen bg-[var(--bg)] pt-24 pb-16">
-      <div className="max-w-4xl mx-auto px-6 flex flex-col gap-8">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col gap-3"
-        >
-          <span className="label-tag w-fit">PDF</span>
-          <h1 className="text-3xl font-bold tracking-tight">{t("title")}</h1>
-          <p className="text-sm text-[var(--muted)]">{t("select")}</p>
-        </motion.div>
+    <div className="relative z-[1] min-h-screen pt-28 pb-16">
+      <div className="shell flex max-w-4xl flex-col gap-8">
+        <div className="flex flex-col gap-3">
+          <p className="eyebrow">
+            <span className="h-px w-7 bg-[var(--line-strong)]" aria-hidden="true" />
+            {t("eyebrow")}
+          </p>
+          <h1 className="t-h2">{t("title")}</h1>
+          <p className="t-body">{t("select")}</p>
+        </div>
 
-        {/* Locale selector */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.15 }}
-          className="flex gap-3"
-        >
-          {locales.map(({ code, label }) => (
-            <motion.button
+        {/* seletor de idioma do documento */}
+        <div className="flex flex-wrap gap-2">
+          {LOCALES.map(({ code, label }) => (
+            <button
               key={code}
+              type="button"
               onClick={() => switchLocale(code)}
-              whileTap={{ scale: 0.95 }}
-              className={`px-4 py-2 rounded text-sm font-mono font-bold tracking-wide transition-all duration-200 ${
-                selectedLocale === code
-                  ? "bg-[var(--accent1)] text-white shadow-md shadow-blue-500/20"
-                  : "bg-white border border-[var(--bg-2)] text-[var(--muted)] hover:border-[var(--accent1)] hover:text-[var(--accent1)]"
+              aria-current={currentLocale === code ? "true" : undefined}
+              className={`rounded-full px-4 py-2.5 font-mono text-[11px] font-bold tracking-[0.16em] uppercase transition-colors ${
+                currentLocale === code
+                  ? "bg-[var(--key-deep)] text-[#ffffff]"
+                  : "border border-[var(--line)] bg-[var(--bg-200)] text-[var(--tx-md)] hover:text-[var(--tx-hi)]"
               }`}
             >
               {label}
-            </motion.button>
+            </button>
           ))}
-        </motion.div>
+        </div>
 
-        {/* Actions */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.25 }}
-          className="flex flex-wrap gap-3"
-        >
+        <div className="flex flex-wrap gap-3">
           <PDFDownloadLink
-            document={<PortfolioPdf locale={selectedLocale} />}
-            fileName={`isabela-machado-portfolio-${selectedLocale}.pdf`}
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-[var(--accent1)] text-white text-sm font-bold rounded shadow-md shadow-blue-500/20 hover:bg-blue-700 transition-colors"
+            document={<PortfolioPdf locale={currentLocale} />}
+            fileName={fileName}
+            className="inline-flex items-center gap-2 rounded-full bg-[var(--key-deep)] px-6 py-3.5 font-mono text-[11px] font-bold tracking-[0.16em] text-[#ffffff] uppercase transition-transform hover:scale-[1.02]"
           >
-            {({ loading }) =>
-              loading ? "Gerando PDF..." : (
-                <>
-                  {t("download")}
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M3 5l4 4 4-4M1 12h12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                </>
-              )
-            }
+            {({ loading }) => (loading ? t("generating") : t("download"))}
           </PDFDownloadLink>
 
-          <motion.button
-            onClick={() => setShowPreview(!showPreview)}
-            whileTap={{ scale: 0.97 }}
-            className="px-5 py-2.5 border-2 border-[var(--text)] text-[var(--text)] text-sm font-bold rounded hover:bg-[var(--text)] hover:text-white transition-all duration-200"
+          <button
+            type="button"
+            onClick={() => setShowPreview((v) => !v)}
+            className="inline-flex items-center gap-2 rounded-full border border-[var(--line-strong)] px-6 py-3.5 font-mono text-[11px] font-bold tracking-[0.16em] text-[var(--tx-hi)] uppercase transition-colors hover:border-[var(--key)]"
           >
-            {showPreview ? "Fechar pré-visualização" : t("preview")}
-          </motion.button>
-        </motion.div>
+            {t("preview")}
+          </button>
 
-        {/* PDF Preview */}
-        {showPreview && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="rounded-xl overflow-hidden border border-[var(--bg-2)] shadow-xl"
-            style={{ height: "80vh" }}
+          <Link
+            href={`/${currentLocale}`}
+            className="inline-flex items-center gap-2 rounded-full px-6 py-3.5 font-mono text-[11px] font-bold tracking-[0.16em] text-[var(--tx-md)] uppercase transition-colors hover:text-[var(--tx-hi)]"
           >
-            <PDFViewer width="100%" height="100%" style={{ border: "none" }}>
-              <PortfolioPdf locale={selectedLocale} />
+            {t("back")}
+          </Link>
+        </div>
+
+        {showPreview && (
+          <div className="overflow-hidden rounded-[20px] border border-[var(--line)] bg-[var(--bg-200)]">
+            <PDFViewer width="100%" height={720} showToolbar style={{ border: "none" }}>
+              <PortfolioPdf locale={currentLocale} />
             </PDFViewer>
-          </motion.div>
+          </div>
         )}
       </div>
     </div>

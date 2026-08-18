@@ -1,188 +1,263 @@
 "use client";
 
+import { useState, type FormEvent } from "react";
 import { useTranslations } from "next-intl";
-import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
-import SectionWrapper from "@/components/ui/SectionWrapper";
+import Section, { SectionHead } from "@/components/ui/Section";
+import StudioCard from "@/components/ui/StudioCard";
 
-const socialLinks = [
-  {
-    key: "whatsapp" as const,
-    href: "https://wa.me/5511999999999",
-    color: "#25D366",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-      </svg>
-    ),
-  },
-  {
-    key: "email" as const,
-    href: "mailto:isabela@email.com",
-    color: "var(--accent1)",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5">
-        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-        <polyline points="22,6 12,13 2,6"/>
-      </svg>
-    ),
-  },
-  {
-    key: "instagram" as const,
-    href: "https://instagram.com/isabelamachado",
-    color: "#E1306C",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-      </svg>
-    ),
-  },
-  {
-    key: "linkedin" as const,
-    href: "https://linkedin.com/in/isabelamachado",
-    color: "#0A66C2",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-      </svg>
-    ),
-  },
-];
+export const EMAIL = "isam250500@gmail.com";
+export const LINKEDIN = "https://linkedin.com/in/isabelamachadomidia";
+export const INSTAGRAM = "https://instagram.com/isabelamachado";
+export const WHATSAPP = "https://wa.me/5519999999999";
+
+const ICONS = {
+  email: "M2 5h20v14H2z M2 6l10 7 10-7",
+  whatsapp:
+    "M4 20l1.3-4A8 8 0 1 1 8 18.7L4 20z M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.6-2-1-.9 1a5 5 0 0 1-2.2-2.2l1-.9-1-2L9 9.5z",
+  linkedin: "M4 9h4v11H4z M6 4.5h.01 M11 20V9h4v1.6A3.4 3.4 0 0 1 20 13v7h-4v-6a1.5 1.5 0 0 0-3 0v6z",
+  instagram: "M4 4h16v16H4z M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z M17.5 6.5h.01",
+} as const;
+
+export type Channel = keyof typeof ICONS;
+
+export function ChannelIcon({ k, className = "h-4.5 w-4.5" }: { k: Channel; className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={`${className} shrink-0`} aria-hidden="true">
+      <path
+        d={ICONS[k]}
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+type Status = "idle" | "sending" | "sent" | "error";
 
 export default function Contact() {
   const t = useTranslations("contact");
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [notice, setNotice] = useState("");
 
-  function handleSubmit(e: React.FormEvent) {
+  const channels: { k: Channel; label: string; href: string }[] = [
+    { k: "email", label: t("email"), href: `mailto:${EMAIL}` },
+    { k: "whatsapp", label: t("whatsapp"), href: WHATSAPP },
+    { k: "linkedin", label: t("linkedin"), href: LINKEDIN },
+    { k: "instagram", label: t("instagram"), href: INSTAGRAM },
+  ];
+
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Replace with EmailJS or Resend integration
-    setSent(true);
-    setTimeout(() => setSent(false), 4000);
-  }
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const name = String(data.get("name") ?? "").trim();
+    const email = String(data.get("email") ?? "").trim();
+    const message = String(data.get("message") ?? "").trim();
+
+    const next: Record<string, string> = {};
+    if (name.length < 2) next.name = t("form.errName");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) next.email = t("form.errEmail");
+    if (message.length < 10) next.message = t("form.errMessage");
+    setErrors(next);
+    setNotice("");
+    if (Object.keys(next).length) return;
+
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+          company: String(data.get("company") ?? ""),
+        }),
+      });
+
+      if (res.ok) {
+        setStatus("sent");
+        form.reset();
+        return;
+      }
+
+      // Envio pelo servidor indisponível: abre o app de e-mail com tudo pronto.
+      const subject = encodeURIComponent(`[Portfólio] ${name}`);
+      const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+      window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+      setStatus("idle");
+      setNotice(t("form.fallback"));
+    } catch {
+      setStatus("error");
+      setNotice(t("form.errNetwork"));
+    }
+  };
+
+  const field =
+    "peer w-full rounded-xl border border-[var(--line)] bg-[var(--bg-100)] px-4 pt-6 pb-2 text-[15px] text-[var(--tx-hi)] outline-none transition-colors placeholder-transparent focus:border-[var(--key)] focus:ring-2 focus:ring-[color-mix(in_srgb,var(--key)_45%,transparent)] aria-invalid:border-[var(--key)]";
+  const label =
+    "pointer-events-none absolute left-4 top-2 font-mono text-[10px] tracking-[0.16em] text-[var(--tx-lo)] uppercase transition-all peer-placeholder-shown:top-4.5 peer-placeholder-shown:text-[13px] peer-placeholder-shown:tracking-normal peer-placeholder-shown:normal-case peer-focus:top-2 peer-focus:text-[10px] peer-focus:tracking-[0.16em] peer-focus:uppercase";
+  const errCls =
+    "mt-1.5 font-mono text-[10px] tracking-[0.12em] text-[var(--key)] uppercase";
 
   return (
-    <SectionWrapper id="contact" alt>
-      <div ref={ref} className="flex flex-col gap-12">
-        {/* Header */}
-        <div className="flex flex-col gap-3 max-w-xl">
-          <motion.span
-            initial={{ opacity: 0, x: -20 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.5 }}
-            className="label-tag w-fit"
-          >
-            {t("label")}
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-3xl sm:text-4xl font-bold tracking-tight"
-          >
-            {t("title")}
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-base text-[var(--muted)]"
-          >
-            {t("sub")}
-          </motion.p>
-        </div>
+    <Section id="contact" depth="100" spot="key">
+      <SectionHead eyebrow={t("eyebrow")} title={t("title")} sub={t("sub")} />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          {/* Social / contact buttons */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.25 }}
-            className="flex flex-col gap-4"
-          >
-            {socialLinks.map((link, i) => (
-              <motion.a
-                key={link.key}
-                href={link.href}
-                target="_blank"
+      <div className="grid items-stretch gap-5 lg:grid-cols-2">
+        {/* ── CANAIS ── */}
+        <div className="flex flex-col gap-4">
+          <div className="grid flex-1 grid-cols-1 gap-3 sm:grid-cols-2">
+            {channels.map((c) => (
+              <a
+                key={c.k}
+                href={c.href}
+                target={c.k === "email" ? undefined : "_blank"}
                 rel="noopener noreferrer"
-                initial={{ opacity: 0, x: -20 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.4, delay: 0.3 + i * 0.07 }}
-                whileHover={{ x: 6 }}
-                className="group flex items-center gap-4 bg-white rounded-xl border border-[var(--bg-2)] p-4 hover:shadow-md hover:border-transparent transition-all duration-200"
-                style={{ "--hover-color": link.color } as React.CSSProperties}
+                className="group relative flex items-center gap-3 overflow-hidden rounded-xl border border-[var(--line)] bg-[var(--bg-200)] px-4 py-4 text-[var(--tx-hi)] transition-colors hover:border-[var(--key)]"
               >
-                <div
-                  className="w-10 h-10 rounded-lg flex items-center justify-center text-white flex-shrink-0"
-                  style={{ background: link.color }}
-                >
-                  {link.icon}
-                </div>
-                <div>
-                  <p className="font-bold text-sm text-[var(--text)] group-hover:text-[var(--accent1)] transition-colors">
-                    {t(link.key)}
-                  </p>
-                  <p className="text-xs text-[var(--muted)]">
-                    {link.key === "whatsapp" ? "+55 (11) 99999-9999" :
-                     link.key === "email" ? "isabela@email.com" :
-                     link.key === "instagram" ? "@isabelamachado" :
-                     "Isabela Machado"}
-                  </p>
-                </div>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-auto text-[var(--muted)] group-hover:text-[var(--accent1)] transition-colors">
-                  <path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </motion.a>
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-y-0 left-0 w-0 bg-[color-mix(in_srgb,var(--key)_16%,transparent)] transition-[width] duration-400 group-hover:w-full"
+                />
+                <span className="relative z-[1] text-[var(--key)]">
+                  <ChannelIcon k={c.k} />
+                </span>
+                <span className="relative z-[1] font-mono text-[11px] tracking-[0.16em] uppercase">
+                  {c.label}
+                </span>
+              </a>
             ))}
+          </div>
 
-            <p className="text-xs text-[var(--muted)] font-mono mt-2">
-              📍 {t("location")}
+          <StudioCard spot="rim" className="p-6">
+            <p className="flex items-center gap-2.5 font-mono text-[10px] tracking-[0.18em] text-[var(--rim)] uppercase">
+              <span
+                className="h-2 w-2 rounded-full bg-[var(--rim)] shadow-[0_0_8px_var(--rim)]"
+                style={{ animation: "status-pulse 2.4s ease-in-out infinite" }}
+                aria-hidden="true"
+              />
+              {t("availabilityLabel")}
             </p>
-          </motion.div>
-
-          {/* Contact form */}
-          <motion.form
-            initial={{ opacity: 0, x: 20 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            onSubmit={handleSubmit}
-            className="flex flex-col gap-4 bg-white rounded-xl border border-[var(--bg-2)] p-6"
-          >
-            <input
-              required
-              type="text"
-              placeholder={t("form.name")}
-              className="w-full px-4 py-3 rounded-lg border border-[var(--bg-2)] bg-[var(--bg)] text-sm placeholder-[var(--muted)] focus:outline-none focus:border-[var(--accent1)] transition-colors"
-            />
-            <input
-              required
-              type="email"
-              placeholder={t("form.email")}
-              className="w-full px-4 py-3 rounded-lg border border-[var(--bg-2)] bg-[var(--bg)] text-sm placeholder-[var(--muted)] focus:outline-none focus:border-[var(--accent1)] transition-colors"
-            />
-            <textarea
-              required
-              rows={4}
-              placeholder={t("form.message")}
-              className="w-full px-4 py-3 rounded-lg border border-[var(--bg-2)] bg-[var(--bg)] text-sm placeholder-[var(--muted)] focus:outline-none focus:border-[var(--accent1)] transition-colors resize-none"
-            />
-            <motion.button
-              type="submit"
-              whileHover={{ y: -1 }}
-              whileTap={{ scale: 0.97 }}
-              className={`w-full py-3 rounded-lg text-sm font-bold tracking-wide transition-all duration-200 ${
-                sent
-                  ? "bg-[var(--accent3)] text-[var(--text)]"
-                  : "bg-[var(--accent1)] text-white hover:bg-blue-700"
-              }`}
-            >
-              {sent ? "✓ Enviado!" : t("form.send")}
-            </motion.button>
-          </motion.form>
+            <p className="mt-3 text-[15px] leading-relaxed text-[var(--tx-md)]">
+              {t("availability")}
+            </p>
+            <p className="mt-4 font-mono text-[11px] tracking-[0.12em] text-[var(--tx-lo)]">
+              {EMAIL}
+            </p>
+          </StudioCard>
         </div>
+
+        {/* ── FORMULÁRIO ── */}
+        <StudioCard spot="key" className="flex flex-col p-6 sm:p-7">
+          <p className="eyebrow mb-5">{t("formLabel")}</p>
+
+          <form onSubmit={onSubmit} className="flex flex-1 flex-col gap-4" noValidate>
+            {/* honeypot — invisível para humano */}
+            <input
+              type="text"
+              name="company"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="absolute h-0 w-0 opacity-0"
+            />
+
+            <div className="relative">
+              <input
+                id="name"
+                name="name"
+                type="text"
+                autoComplete="name"
+                placeholder={t("form.name")}
+                aria-invalid={!!errors.name}
+                aria-describedby={errors.name ? "err-name" : undefined}
+                className={field}
+              />
+              <label htmlFor="name" className={label}>
+                {t("form.name")}
+              </label>
+              {errors.name && (
+                <p id="err-name" className={errCls}>
+                  {errors.name}
+                </p>
+              )}
+            </div>
+
+            <div className="relative">
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autoComplete="email"
+                placeholder={t("form.email")}
+                aria-invalid={!!errors.email}
+                aria-describedby={errors.email ? "err-email" : undefined}
+                className={field}
+              />
+              <label htmlFor="email" className={label}>
+                {t("form.email")}
+              </label>
+              {errors.email && (
+                <p id="err-email" className={errCls}>
+                  {errors.email}
+                </p>
+              )}
+            </div>
+
+            <div className="relative flex-1">
+              <textarea
+                id="message"
+                name="message"
+                rows={6}
+                placeholder={t("form.message")}
+                aria-invalid={!!errors.message}
+                aria-describedby={errors.message ? "err-message" : undefined}
+                className={`${field} h-full min-h-[150px] resize-y`}
+              />
+              <label htmlFor="message" className={label}>
+                {t("form.message")}
+              </label>
+              {errors.message && (
+                <p id="err-message" className={errCls}>
+                  {errors.message}
+                </p>
+              )}
+            </div>
+
+            <button
+              type="submit"
+              disabled={status === "sending" || status === "sent"}
+              className="inline-flex items-center justify-center gap-2.5 rounded-full bg-[var(--key-deep)] px-6 py-3.5 font-mono text-[11px] font-bold tracking-[0.18em] text-[#ffffff] uppercase transition-transform hover:scale-[1.02] disabled:scale-100 disabled:bg-[var(--bg-300)] disabled:text-[var(--tx-md)]"
+            >
+              {status === "sending" && (
+                <span
+                  className="h-2 w-2 rounded-full bg-current"
+                  style={{ animation: "status-pulse 1s ease-in-out infinite" }}
+                  aria-hidden="true"
+                />
+              )}
+              {status === "sent" && <span aria-hidden="true">✓</span>}
+              {status === "idle" && t("form.send")}
+              {status === "error" && t("form.send")}
+              {status === "sending" && t("form.sending")}
+              {status === "sent" && t("form.sent")}
+            </button>
+
+            <p
+              role="status"
+              aria-live="polite"
+              className="min-h-[1.4em] font-mono text-[10px] leading-relaxed tracking-[0.1em] text-[var(--tx-lo)] uppercase"
+            >
+              {notice || (status === "sent" ? t("form.sentNote") : t("form.note"))}
+            </p>
+          </form>
+        </StudioCard>
       </div>
-    </SectionWrapper>
+    </Section>
   );
 }

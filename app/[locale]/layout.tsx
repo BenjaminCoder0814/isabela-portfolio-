@@ -1,12 +1,11 @@
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { Inter } from "next/font/google";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import BroadcastLayout from "@/components/BroadcastLayout";
-
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+import { fontVars } from "@/app/fonts";
+import MotionProvider from "@/components/motion/MotionProvider";
+import StudioLayer from "@/components/bg/StudioLayer";
+import Navbar from "@/components/nav/Navbar";
+import Footer from "@/components/sections/Footer";
 
 const locales = ["pt", "en", "es"];
 
@@ -22,20 +21,21 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-
   if (!locales.includes(locale)) notFound();
 
-  const messages = await getMessages();
+  setRequestLocale(locale);
+  const messages = await getMessages({ locale });
 
   return (
-    <html lang={locale} className={inter.variable}>
-      <body className="font-sans bg-[var(--bg)] text-[var(--text)] antialiased">
+    <html lang={locale} className={fontVars}>
+      <body>
         <NextIntlClientProvider messages={messages}>
-          <BroadcastLayout locale={locale}>
-            <Header />
-            <main>{children}</main>
+          <MotionProvider>
+            <StudioLayer />
+            <Navbar />
+            <main className="relative z-[1]">{children}</main>
             <Footer />
-          </BroadcastLayout>
+          </MotionProvider>
         </NextIntlClientProvider>
       </body>
     </html>

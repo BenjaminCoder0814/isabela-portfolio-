@@ -1,22 +1,22 @@
 import Hero from "@/components/hero/Hero";
+import Bridge from "@/components/sections/Bridge";
+import Deliver from "@/components/sections/Deliver";
+import Process from "@/components/sections/Process";
+import Lab from "@/components/sections/Lab";
+import Stack from "@/components/sections/Stack";
 import About from "@/components/sections/About";
-import Highlights from "@/components/sections/Highlights";
-import Projects from "@/components/sections/Projects";
-import Skills from "@/components/sections/Skills";
-import Education from "@/components/sections/Education";
-import Value from "@/components/sections/Value";
 import Contact from "@/components/sections/Contact";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
+      <Bridge />
+      <Deliver />
+      <Process />
+      <Lab />
+      <Stack />
       <About />
-      <Highlights />
-      <Projects />
-      <Skills />
-      <Education />
-      <Value />
       <Contact />
     </>
   );
