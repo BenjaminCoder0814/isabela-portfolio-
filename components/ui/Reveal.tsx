@@ -66,8 +66,9 @@ export default function Reveal({
     );
     io.observe(el);
 
-    /* rede de segurança: nada fica invisível para sempre */
-    const failsafe = setTimeout(reveal, 4000);
+    /* rede de segurança: se por algum motivo o observador não disparar,
+       nada fica invisível */
+    const failsafe = setTimeout(reveal, 2000);
 
     return () => {
       io.disconnect();

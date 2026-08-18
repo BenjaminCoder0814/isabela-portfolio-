@@ -82,8 +82,8 @@ export default function Hero() {
   const fade = useTransform(scrollYProgress, [0, 1], [1, 0.4]);
 
   const wordsA = headlineA.split(" ");
-  const wordsB = headlineB.split(" ");
   const lineDelay = 0.2 + wordsA.length * 0.12;
+  const barDelay = lineDelay + 0.45;
 
   const Word = ({ word, delay }: { word: string; delay: number }) => (
     <span className="mr-[0.24em] inline-block overflow-hidden align-bottom">
@@ -118,11 +118,17 @@ export default function Hero() {
             {wordsA.map((w, i) => (
               <Word key={`a-${i}`} word={w} delay={0.2 + i * 0.12} />
             ))}
-            {/* o gradiente cobre a frase inteira, não cada palavra */}
-            <span className="text-gradient block w-fit">
-              {wordsB.map((w, i) => (
-                <Word key={`b-${i}`} word={w} delay={lineDelay + i * 0.12} />
-              ))}
+            {/* A linha do gradiente sobe como um bloco só, não palavra a
+                palavra: `background-clip: text` não pinta através de
+                descendentes com clip-path/transform, que criam camada
+                própria — era o que estava deixando a frase invisível. */}
+            <span className="block w-fit overflow-hidden pb-[0.08em]">
+              <span
+                className="text-gradient line-rise block"
+                style={{ ["--d" as string]: `${lineDelay}s` }}
+              >
+                {headlineB}
+              </span>
             </span>
           </h1>
 
@@ -131,7 +137,7 @@ export default function Hero() {
             className="light-bar h-[2px]"
             style={{
               background: "linear-gradient(90deg, transparent, var(--key), transparent)",
-              ["--d" as string]: `${lineDelay + wordsB.length * 0.12}s`,
+              ["--d" as string]: `${barDelay}s`,
             }}
           />
 

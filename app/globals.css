@@ -316,6 +316,10 @@
     animation: word-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
     animation-delay: var(--d, 0s);
   }
+  .line-rise {
+    animation: line-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: var(--d, 0s);
+  }
   .light-bar {
     animation: light-bar 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
     animation-delay: var(--d, 0s);
@@ -412,6 +416,10 @@
 @keyframes word-up {
   from { clip-path: inset(100% 0 0 0); transform: translateY(0.14em); }
   to   { clip-path: inset(0 0 0 0); transform: none; }
+}
+@keyframes line-rise {
+  from { transform: translateY(105%); }
+  to   { transform: none; }
 }
 @keyframes light-bar {
   from { width: 0; }
