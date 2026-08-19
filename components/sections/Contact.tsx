@@ -6,8 +6,9 @@ import Section, { SectionHead } from "@/components/ui/Section";
 import StudioCard from "@/components/ui/StudioCard";
 
 export const EMAIL = "isam250500@gmail.com";
-export const LINKEDIN = "https://linkedin.com/in/isabelamachadomidia";
-export const INSTAGRAM = "https://instagram.com/isabelamachado";
+export const LINKEDIN = "https://www.linkedin.com/in/isabelamachadomidia";
+export const INSTAGRAM = "https://www.instagram.com/_machadoisabela_/";
+export const INSTAGRAM_HANDLE = "@_machadoisabela_";
 
 /** wa.me exige só dígitos: país + DDD + número, sem +, espaço ou traço. */
 export const PHONE_DIGITS = "5519989899317";

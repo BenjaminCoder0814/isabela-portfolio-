@@ -117,6 +117,7 @@ export function personSchema(locale: string, siteUrl: string) {
     },
     sameAs: [
       "https://www.linkedin.com/in/isabelamachadomidia",
+      "https://www.instagram.com/_machadoisabela_/",
       "https://wa.me/5519989899317",
     ],
   };

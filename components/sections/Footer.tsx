@@ -7,6 +7,7 @@ import {
   ChannelIcon,
   EMAIL,
   INSTAGRAM,
+  INSTAGRAM_HANDLE,
   LINKEDIN,
   PHONE_DISPLAY,
   waLink,
@@ -20,7 +21,7 @@ function contacts(waMessage: string): { k: Channel; label: string; href: string 
     { k: "email", label: EMAIL, href: `mailto:${EMAIL}` },
     { k: "whatsapp", label: PHONE_DISPLAY, href: waLink(waMessage) },
     { k: "linkedin", label: "LinkedIn", href: LINKEDIN },
-    { k: "instagram", label: "Instagram", href: INSTAGRAM },
+    { k: "instagram", label: INSTAGRAM_HANDLE, href: INSTAGRAM },
   ];
 }
 
