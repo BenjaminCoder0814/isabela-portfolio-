@@ -3,6 +3,7 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { fontVars } from "@/app/fonts";
 import { personSchema } from "@/lib/personSchema";
+import { getSiteUrl } from "@/lib/siteUrl";
 import MotionProvider from "@/components/motion/MotionProvider";
 import CampaignBootSequence from "@/components/boot/CampaignBootSequence";
 import AtmosphereLayer from "@/components/bg/AtmosphereLayer";
@@ -11,7 +12,7 @@ import Footer from "@/components/sections/Footer";
 
 const locales = ["pt", "en", "es"];
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://isabelamachado.example";
+const SITE_URL = getSiteUrl();
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));

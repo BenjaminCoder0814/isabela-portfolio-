@@ -45,13 +45,19 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
    | Variável | Obrigatória | Para quê |
    |---|---|---|
-   | `NEXT_PUBLIC_SITE_URL` | sim | `og:image`, `metadataBase` e JSON-LD. Sem ela o link compartilhado sai sem imagem |
+   | `NEXT_PUBLIC_SITE_URL` | não | `og:image`, `metadataBase` e JSON-LD. Em branco, o domínio da própria Vercel é usado |
    | `RESEND_API_KEY` | não | Envio do formulário pelo servidor. Sem ela, o formulário abre o app de e-mail do visitante |
    | `CONTACT_TO_EMAIL` | não | Destino da mensagem (padrão: isam250500@gmail.com) |
    | `CONTACT_FROM_EMAIL` | não | Remetente, de domínio verificado no Resend |
 
-3. Depois de apontar um domínio próprio, **atualize `NEXT_PUBLIC_SITE_URL`
-   e refaça o deploy** — essa variável entra no HTML em build time.
+3. Depois de apontar um domínio próprio, **defina `NEXT_PUBLIC_SITE_URL`
+   e refaça o deploy** — o valor entra no HTML em build time, então trocar
+   a variável sem rebuildar não muda nada.
+
+A resolução do domínio fica em [`lib/siteUrl.ts`](lib/siteUrl.ts) e tolera
+variável em branco, só com espaço, ou domínio sem `https://`. Isso não é
+zelo excessivo: uma variável criada e deixada vazia já derrubou o build
+inteiro com `ERR_INVALID_URL`, porque `??` não protege de string vazia.
 
 ### Contato — onde os dados moram
 
